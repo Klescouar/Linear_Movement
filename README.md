@@ -1,7 +1,4 @@
-# Repo for Zell's CRUD, Express and MongoDB tutorial
-
-- [Demo](https://crud-express-mongo.herokuapp.com)
-- [Tutorial](http://zell-weekeat.com/crud-express-mongodb)
+### Pour JEAN:
 
 ## Installation
 
@@ -10,6 +7,5 @@
 
 ## Usage 
 
-1. run `npm run dev`
-2. Navigate to `localhost:3000`
-3. Have fun ;)
+1. Lance GULP avec la commande `gulp`
+2. Ouvre un autre terminal et lance node avec la commande `node server.js` (le mieux c'est d'installer `nodemon` comme ça tu n'as pas a lancer `node server.js` à chaque modification.
