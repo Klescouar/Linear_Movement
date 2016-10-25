@@ -5,9 +5,10 @@ const MongoClient = require('mongodb').MongoClient
 
 var db
 
-MongoClient.connect('mongodb://zellwk:zellwk@ds047955.mongolab.com:47955/star-wars-quotes', (err, database) => {
+MongoClient.connect('mongodb://linear:movement@ds041484.mlab.com:41484/linear_movement', (err, database) => {
   if (err) return console.log(err)
-  db = database
+  db = database;
+  console.log(db);
   app.listen(process.env.PORT || 6868, () => {
     console.log('Ca tourne sur http://localhost:6868')
   })
