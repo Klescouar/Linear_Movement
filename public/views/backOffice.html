@@ -1,0 +1,39 @@
+<div class="boContainer" ng-controller="boCtrl">
+    <div class="boChoice">
+        <a href="" ng-click="show = 0">Créer un article</a>
+        <a href="" ng-click="show = 1">Supprimer/modifier un article</a>
+    </div>
+
+    <div class="showChoice" ng-if="show === 0">
+        <input id="title" type="text" class="inputTitle" placeholder="Titre...">
+        <textarea  id="corpus" name="name"class="inputCorpus" placeholder="Corpus..."></textarea>
+        <button class="confirm-button" ng-click="addArticle()">Ajouter article</button>
+    </div>
+
+    <div class="showChoice" ng-if="show === 1">
+        <div class="remove-or-edit" ng-repeat="article in linear_movement">
+            <p>{{article.title}}</p>
+            <button class="" ng-click="removeArticle(article._id)">Remove</button>
+            <button class="" ng-click="editArticle(article._id)">Edit</button>
+        </div>
+    </div>
+
+    <div class="showChoice" ng-if="show === 2">
+        <input id="title" type="text" class="inputTitle" placeholder="Titre..." value="{{article.title}}">
+        <textarea  id="corpus" class="inputCorpus" placeholder="Corpus..." >{{article.corpus}}</textarea>
+        <button class="confirm-button" ng-click="updateArticle()">Edit article</button>
+    </div>
+
+
+    <!-- <div ng-repeat="article in linear_movement">
+            <h1>{{article.title}}</h1>
+            <p>
+                {{article.corpus}}
+            </p>
+        </div> -->
+    <!-- <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
+        <td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td> -->
+    <!-- <td><button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>
+                <td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td> -->
+
+</div>
