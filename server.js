@@ -17,7 +17,7 @@ MongoClient.connect('mongodb://linear:movement@ds041484.mlab.com:41484/linear_mo
 app.set('view engine', 'html')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
-app.use(express.static('public'))
+app.use(express.static('dist'))
 
 app.get('/', (req, res) => {
   db.collection('quotes').find().toArray((err, result) => {
