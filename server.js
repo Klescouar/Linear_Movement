@@ -3,7 +3,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const mongojs = require('mongojs');
 
-var db = mongojs('linear_movement', ['linear_movement']);
+var db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_movement', ['Articles']);
 
 console.log(db);
 
@@ -28,14 +28,14 @@ app.get('/', (req, res) => {
 app.get('/linear_movement', function(req, res) {
     console.log('I received a GET request');
 
-    db.linear_movement.find(function(err, docs) {
+    db.Articles.find(function(err, docs) {
         res.json(docs);
         console.log(docs);
     });
 });
 app.post('/linear_movement', function(req, res) {
     console.log(req.body);
-    db.linear_movement.insert(req.body, function(err, doc) {
+    db.Articles.insert(req.body, function(err, doc) {
         res.json(doc);
     });
 });
@@ -43,7 +43,7 @@ app.post('/linear_movement', function(req, res) {
 app.delete('/linear_movement/:id', function(req, res) {
     var id = req.params.id;
     console.log(id);
-    db.linear_movement.remove({
+    db.Articles.remove({
         _id: mongojs.ObjectId(id)
     }, function(err, doc) {
         res.json(doc);
@@ -53,7 +53,7 @@ app.delete('/linear_movement/:id', function(req, res) {
 app.get('/linear_movement/:id', function(req, res) {
     var id = req.params.id;
     console.log(id);
-    db.linear_movement.findOne({
+    db.Articles.findOne({
         _id: mongojs.ObjectId(id)
     }, function(err, doc) {
         res.json(doc);
@@ -63,7 +63,7 @@ app.get('/linear_movement/:id', function(req, res) {
 app.put('/linear_movement/:id', function(req, res) {
     var id = req.params.id;
     console.log(req.body.name);
-    db.linear_movement.findAndModify({
+    db.Articles.findAndModify({
         query: {
             _id: mongojs.ObjectId(id)
         },
