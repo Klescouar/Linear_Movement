@@ -24,14 +24,16 @@ app.get('/backOffice', function(req, res) {
     res.sendFile(__dirname + '/views/backOffice.html');
 });
 
+console.log(__dirname);
+
 app.listen(process.env.PORT || 6868);
 
 app.set('view engine', 'html')
 app.use(bodyParser.urlencoded({
     extended: true
-}))
-app.use(bodyParser.json())
-app.use(express.static('dist'))
+}));
+app.use(bodyParser.json());
+app.use(express.static('dist'));
 
 app.get('/', (req, res) => {
     db.collection('quotes').find().toArray((err, result) => {
