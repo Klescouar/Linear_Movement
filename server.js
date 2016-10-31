@@ -24,7 +24,7 @@ app.get('/backOffice', function(req, res) {
     res.sendFile(__dirname + '/dist/views/backOffice.html');
 });
 
-app.listen(6868);
+app.listen(process.env.PORT || 6868);
 
 app.set('view engine', 'html')
 app.use(bodyParser.urlencoded({
