@@ -1,5 +1,5 @@
 {
-  "name": "crud-express-mongo",
+  "name": "linear_movement",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,7 +7,7 @@
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
-  "author": "",
+  "author": "Kéké et Jeannot",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.2",
