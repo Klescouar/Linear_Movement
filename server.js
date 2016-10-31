@@ -2,10 +2,27 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const mongojs = require('mongojs');
+const request = require('request');
 
 var db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_movement', ['Articles']);
 
-console.log(db);
+app.use(function(req, res, next) {
+    var auth;
+    if (req.headers.authorization) {
+        auth = new Buffer(req.headers.authorization.substring(6), 'base64').toString().split(':');
+    }
+    if (!auth || auth[0] !== 'Florent' || auth[1] !== 'linear2702') {
+        res.statusCode = 401;
+        res.setHeader('WWW-Authenticate', 'Basic realm="MyRealmName"');
+        res.end('Unauthorized');
+    } else {
+        next();
+    }
+});
+
+app.get('/backOffice', function(req, res) {
+    res.sendFile(__dirname + '/dist/views/backOffice.html');
+});
 
 app.listen(6868);
 
@@ -33,14 +50,14 @@ app.get('/linear_movement', function(req, res) {
         console.log(docs);
     });
 });
-app.post('/linear_movement', function(req, res) {
+app.post('/linear_movement/addArticle', function(req, res) {
     console.log(req.body);
     db.Articles.insert(req.body, function(err, doc) {
         res.json(doc);
     });
 });
 
-app.delete('/linear_movement/:id', function(req, res) {
+app.delete('/linear_movement/remove/:id', function(req, res) {
     var id = req.params.id;
     console.log(id);
     db.Articles.remove({
@@ -60,7 +77,7 @@ app.get('/linear_movement/:id', function(req, res) {
     });
 });
 
-app.put('/linear_movement/:id', function(req, res) {
+app.put('/linear_movement/update/:id', function(req, res) {
     var id = req.params.id;
     console.log(req.body.name);
     db.Articles.findAndModify({

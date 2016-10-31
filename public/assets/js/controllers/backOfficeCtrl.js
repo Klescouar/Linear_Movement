@@ -16,7 +16,7 @@ app.controller('boCtrl', ['$scope', '$http', function($scope, $http) {
             title: document.getElementById("title").value,
             corpus: document.getElementById("corpus").value,
         };
-        $http.post('/linear_movement', dataArticle).success(function(response) {
+        $http.post('/linear_movement/addArticle', dataArticle).success(function(response) {
             console.log(response);
             refresh();
         });
@@ -25,7 +25,7 @@ app.controller('boCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.removeArticle = function(id) {
 
         console.log(id);
-        $http.delete('/linear_movement/' + id).success(function(response) {
+        $http.delete('/linear_movement/remove/' + id).success(function(response) {
             refresh();
         });
     };
@@ -45,7 +45,7 @@ app.controller('boCtrl', ['$scope', '$http', function($scope, $http) {
           corpus: document.getElementById("corpus").value,
       };
         console.log($scope.article._id);
-        $http.put('/linear_movement/' + $scope.article._id, dataArticle).success(function(response) {
+        $http.put('/linear_movement/update/' + $scope.article._id, dataArticle).success(function(response) {
             refresh();
         })
     };
