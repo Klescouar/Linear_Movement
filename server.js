@@ -21,7 +21,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/backOffice', function(req, res) {
-    res.sendFile(__dirname + '/dist/views/backOffice.html');
+    res.sendFile(__dirname + '/views/backOffice.html');
 });
 
 app.listen(process.env.PORT || 6868);
