@@ -4,10 +4,10 @@ const bodyParser = require('body-parser')
 const mongojs = require('mongojs');
 const request = require('request');
 
-var db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_movement', ['Articles', 'Home']);
+let db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_movement', ['Articles', 'Home']);
 
-app.use(function(req, res, next) {
-    var auth;
+app.use((req, res, next) => {
+    let auth;
     if (req.headers.authorization) {
         auth = new Buffer(req.headers.authorization.substring(6), 'base64').toString().split(':');
     }
@@ -20,11 +20,9 @@ app.use(function(req, res, next) {
     }
 });
 
-app.get('/backOffice', function(req, res) {
+app.get('/backOffice', (req, res) => {
     res.sendFile(__dirname + '/dist/views/backOffice.html');
 });
-
-console.log(__dirname);
 
 app.listen(process.env.PORT || 6868);
 
@@ -35,32 +33,66 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(express.static('dist'));
 
-app.get('/', (req, res) => {
-    db.collection('quotes').find().toArray((err, result) => {
-        if (err) return console.log(err)
-        res.render('index.html', {
-            quotes: result
-        })
-    })
-})
+// app.get('/', (req, res) => {
+//     db.collection('quotes').find().toArray((err, result) => {
+//         if (err) return console.log(err)
+//         res.render('index.html', {
+//             quotes: result
+//         })
+//     })
+// })
 
-app.get('/linear_movement', function(req, res) {
+app.get('/Artiste', (req, res) => {
     console.log('I received a GET request');
-
     db.Articles.find(function(err, docs) {
         res.json(docs);
         console.log(docs);
     });
 });
-app.post('/linear_movement/addArtist', function(req, res) {
+app.get('/Home', (req, res) => {
+    console.log('I received a GET request');
+    db.Home.find(function(err, docs) {
+        res.json(docs);
+        console.log(docs);
+    });
+});
+app.put('/linear_movement/updateHome', (req, res) => {
+    let id = req.params.id;
+    console.log(req.body.name);
+    db.Home.findAndModify({
+        query: {
+            _id: mongojs.ObjectId('5819f74dda1b16157afd60c3')
+        },
+        update: {
+            $set: {
+                bioLinear: req.body.bioLinear,
+                contact: req.body.contact,
+                soundcloud: req.body.soundcloud,
+                bandcamp: req.body.bandcamp,
+                facebook: req.body.facebook,
+            }
+        },
+        new: true
+    }, function(err, doc) {
+        res.json(doc);
+    });
+});
+app.post('/linear_movement/addArtist', (req, res) => {
     console.log(req.body);
     db.Articles.insert(req.body, function(err, doc) {
         res.json(doc);
     });
 });
 
-app.delete('/linear_movement/remove/:id', function(req, res) {
-    var id = req.params.id;
+app.post('/linear_movement/addHome', (req, res) => {
+    console.log(req.body);
+    db.Home.insert(req.body, function(err, doc) {
+        res.json(doc);
+    });
+});
+
+app.delete('/linear_movement/remove/artiste/:id', (req, res) => {
+    let id = req.params.id;
     console.log(id);
     db.Articles.remove({
         _id: mongojs.ObjectId(id)
@@ -69,8 +101,8 @@ app.delete('/linear_movement/remove/:id', function(req, res) {
     });
 });
 
-app.get('/linear_movement/:id', function(req, res) {
-    var id = req.params.id;
+app.get('/linear_movement/edit/artiste/:id', (req, res) => {
+    let id = req.params.id;
     console.log(id);
     db.Articles.findOne({
         _id: mongojs.ObjectId(id)
@@ -79,17 +111,38 @@ app.get('/linear_movement/:id', function(req, res) {
     });
 });
 
-app.put('/linear_movement/update/:id', function(req, res) {
-    var id = req.params.id;
-    console.log(req.body.name);
+app.put('/linear_movement/update/artiste/:id', (req, res) => {
+    let id = req.params.id;
     db.Articles.findAndModify({
         query: {
             _id: mongojs.ObjectId(id)
         },
         update: {
             $set: {
-                title: req.body.title,
-                corpus: req.body.corpus,
+              name: req.body.name,
+              bio: req.body.bio,
+              facebook: req.body.facebook,
+              discorgs: req.body.discorgs,
+              resident: req.body.resident,
+              events: [{
+                  titleEvent1:req.body.titleEvent1,
+                  descriptEvent1: req.body.descriptEvent1
+              }, {
+                  titleEvent2: req.body.titleEvent2,
+                  descriptEvent2: req.body.descriptEvent2
+              }, {
+                  titleEvent3: req.body.titleEvent3,
+                  descriptEvent3: req.body.descriptEvent3
+              }, {
+                  titleEvent4: req.body.titleEvent4,
+                  descriptEvent4: req.body.descriptEvent4
+              }, {
+                  titleEvent5: req.body.titleEvent5,
+                  descriptEvent5: req.body.descriptEvent5
+              }, {
+                  titleEvent6: req.body.titleEvent6,
+                  descriptEvent6: req.body.descriptEvent6
+              }]
             }
         },
         new: true
