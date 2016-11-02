@@ -38,11 +38,7 @@
             </div>
 
             <div class="showChoice" ng-if="show === 1">
-                <div class="remove-or-edit" ng-repeat="article in linear_movement">
-                    <p>{{article.title}}</p>
-                    <button class="" ng-click="removeArticle(article._id)">Remove</button>
-                    <button class="" ng-click="editArticle(article._id)">Edit</button>
-                </div>
+              <textarea id="bioLinear" name="name" placeholder="Description linear_movement..."></textarea>
             </div>
 
             <div class="showChoice" ng-if="show === 2">
