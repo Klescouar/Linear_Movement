@@ -1,39 +1,56 @@
-<div class="boContainer" ng-controller="boCtrl">
-    <div class="boChoice">
-        <a href="" ng-click="show = 0">Créer un article</a>
-        <a href="" ng-click="show = 1">Supprimer/modifier un article</a>
-    </div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script type="text/javascript" src="../lib/js/angular.min.js"></script>
+        <script type="text/javascript" src="../lib/js/jquery.min.js"></script>
+        <script type="text/javascript" src="../lib/js/lodash.js"></script>
+        <script type="text/javascript" src="../lib/js/angular-route.js"></script>
+        <link rel="stylesheet" href="../assets/css/style.css" media="screen" title="no title">
+    </head>
+    <body>
+        <div class="boContainer" ng-app="linear_movement" ng-controller="boCtrl">
+            <div class="boChoice">
+                <a ng-click="show = 0">Créer une fiche artiste</a>
+                <a ng-click="show = 1">Info Home</a>
+            </div>
 
-    <div class="showChoice" ng-if="show === 0">
-        <input id="title" type="text" class="inputTitle" placeholder="Titre...">
-        <textarea  id="corpus" name="name"class="inputCorpus" placeholder="Corpus..."></textarea>
-        <button class="confirm-button" ng-click="addArticle()">Ajouter article</button>
-    </div>
+            <div class="showChoice" ng-if="show === 0">
+                <input id="name" type="text" class="inputTitle" placeholder="Nom du groupe...">
+                <textarea id="biography" name="name" class="inputCorpus" placeholder="Biographie..."></textarea>
+                <input id="facebook" type="text" class="inputTitle" placeholder="facebook...">
+                <input id="discorgs" type="text" class="inputTitle" placeholder="discorgs...">
+                <input id="resident" type="text" class="inputTitle" placeholder="Resident...">
+                <input id="titleEvent1" type="text" class="inputTitle" placeholder="titleEvent...">
+                <textarea id="descriptEvent1" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                <input id="titleEvent2" type="text" class="inputTitle" placeholder="titleEvent...">
+                <textarea id="descriptEvent2" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                <input id="titleEvent3" type="text" class="inputTitle" placeholder="titleEvent...">
+                <textarea id="descriptEvent3" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                <input id="titleEvent4" type="text" class="inputTitle" placeholder="titleEvent...">
+                <textarea id="descriptEvent4" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                <input id="titleEvent5" type="text" class="inputTitle" placeholder="titleEvent...">
+                <textarea id="descriptEvent5" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                <input id="titleEvent6" type="text" class="inputTitle" placeholder="titleEvent...">
+                <textarea id="descriptEvent6" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                <button class="confirm-button" ng-click="addArtist()">Ajouter article</button>
+            </div>
 
-    <div class="showChoice" ng-if="show === 1">
-        <div class="remove-or-edit" ng-repeat="article in linear_movement">
-            <p>{{article.title}}</p>
-            <button class="" ng-click="removeArticle(article._id)">Remove</button>
-            <button class="" ng-click="editArticle(article._id)">Edit</button>
-        </div>
-    </div>
+            <div class="showChoice" ng-if="show === 1">
+                <div class="remove-or-edit" ng-repeat="article in linear_movement">
+                    <p>{{article.title}}</p>
+                    <button class="" ng-click="removeArticle(article._id)">Remove</button>
+                    <button class="" ng-click="editArticle(article._id)">Edit</button>
+                </div>
+            </div>
 
-    <div class="showChoice" ng-if="show === 2">
-        <input id="title" type="text" class="inputTitle" placeholder="Titre..." value="{{article.title}}">
-        <textarea  id="corpus" class="inputCorpus" placeholder="Corpus..." >{{article.corpus}}</textarea>
-        <button class="confirm-button" ng-click="updateArticle()">Edit article</button>
-    </div>
-
-
-    <!-- <div ng-repeat="article in linear_movement">
-            <h1>{{article.title}}</h1>
-            <p>
-                {{article.corpus}}
-            </p>
-        </div> -->
-    <!-- <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
-        <td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td> -->
-    <!-- <td><button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>
-                <td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td> -->
-
-</div>
+            <div class="showChoice" ng-if="show === 2">
+                <input id="title" type="text" class="inputTitle" placeholder="Titre..." value="{{article.title}}">
+                <textarea id="corpus" class="inputCorpus" placeholder="Corpus...">{{article.corpus}}</textarea>
+                <button class="confirm-button" ng-click="updateArticle()">Edit article</button>
+            </div>
+            <script type="text/javascript" src="../assets/js/app.js"></script>
+            <script type="text/javascript" src="../assets/js/controllers/backOfficeCtrl.js"></script>
+        </body>
+    </html>

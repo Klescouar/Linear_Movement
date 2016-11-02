@@ -1,5 +1,5 @@
 {
-  "name": "crud-express-mongo",
+  "name": "linear_movement",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,7 +7,7 @@
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
-  "author": "",
+  "author": "Kéké et Jeannot",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.2",
@@ -26,7 +26,10 @@
     "gulp-uglify": "^2.0.0",
     "imagemin-pngquant": "^5.0.0",
     "jshint-stylish": "^2.2.1",
-    "mongodb": "^2.1.4"
+    "mongodb": "^2.1.4",
+    "mongojs": "^2.4.0",
+    "node-basicauth": "0.0.9",
+    "request": "^2.76.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
