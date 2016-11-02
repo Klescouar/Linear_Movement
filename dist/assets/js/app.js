@@ -5,6 +5,9 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/', {
             templateUrl: 'views/home.html'
         })
+        .when('/artist:id_artist', {
+            templateUrl: 'views/artistPage.html'
+        })
         .when('/backOffice', {
             templateUrl: 'views/backOffice.html'
         })

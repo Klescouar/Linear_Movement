@@ -1,0 +1,50 @@
+.main-cont{
+	font-family: "DejaVu";
+	display: flex;
+	justify-content: center;
+	align-items:center;
+
+	.cont-left-artist{
+		height: 100vh;
+		width:33% ;
+		background-color: red;
+		align-self:flex-start;
+		
+	}
+
+	.cont-img{
+		height: 500px;
+		width: 34%;
+		background: url(../images/hydergine.png) no-repeat center;
+		
+	}
+
+	.info-artist{
+		cursor: move;
+		position: absolute;
+		left: 16%;
+		height: 700px;
+  		width: 450px;
+  		background: url(../images/stickies.png) no-repeat center;
+  		background-size: cover;
+
+
+	}
+
+	.cont-right-invisible{
+		height: 100vh;
+		width: 33%;
+		display: flex;
+  		justify-content: flex-end;
+  		align-items: flex-end;
+
+		.logo{
+			background: url(../images/Logo_linear-72dpi-tailleOk.png) no-repeat center;
+  			margin-right: 30px;
+  			margin-bottom: 30px;
+  			background-size: cover;
+   			height: 260px;
+   			width: 24px;
+		}
+	}
+}
