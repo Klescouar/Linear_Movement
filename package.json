@@ -28,7 +28,8 @@
     "jshint-stylish": "^2.2.1",
     "mongodb": "^2.1.4",
     "mongojs": "^2.4.0",
-    "node-basicauth": "0.0.9"
+    "node-basicauth": "0.0.9",
+    "request": "^2.76.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

@@ -1,1 +1,25 @@
-Ca marche?
+<div class="main-cont" ng-controller="homeCtrl">
+  <div class="cont-left">
+  </div>
+  
+  <div class="img-middle draggable" ng-click="changeZIndex (1)"></div>
+  
+  <div class="video-middle draggable" ng-click="changeZIndex (2)">
+    <iframe class="iframe-home" ng-class="{'iframe-home2': !changeEvent}" src="https://player.vimeo.com/video/188654188" width="640" height="352" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  </div>
+  <div class="info-middle draggable" id="resize" ng-click="changeZIndex (3)">
+    <h2>Welcome.<br>Linear Movement is Paris-based techno label founded in 2015 with the meeting of Audub and the graphic collective Miranda. At the base of the label, the desire to offer an aesthetic who brings together complementary and convergent views.</h2>
+    <div class="cont-contact">
+      <a href="">://  Contact:</a>
+      <a target="_blank" href="https://soundcloud.com/linear-movement">://   Soundcloud:</a>
+      <a target="_blank" href="https://linearmovement.bandcamp.com/">://   Bandcamp:</a>
+      <a target="_blank" href="https://www.facebook.com/linearmovement">://   Facebook:</a>
+    </div>
+    <div class="cont-artists">
+    </div>
+  </div>
+  <div class="cont-right">
+    <div class="logo"></div>
+  </div>
+</div>
+
