@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const mongojs = require('mongojs');
 const request = require('request');
 
-var db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_movement', ['Articles']);
+var db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_movement', ['Articles', 'Home']);
 
 app.use(function(req, res, next) {
     var auth;
@@ -52,7 +52,7 @@ app.get('/linear_movement', function(req, res) {
         console.log(docs);
     });
 });
-app.post('/linear_movement/addArticle', function(req, res) {
+app.post('/linear_movement/addArtist', function(req, res) {
     console.log(req.body);
     db.Articles.insert(req.body, function(err, doc) {
         res.json(doc);
