@@ -1,143 +1,131 @@
 @font-face {
     font-family: "DejaVu";
     src: url('../../lib/fonts/DejaVuSans/DejaVuSans.ttf');
-
     font-family: "DejaVuBold";
     src: url('../../lib/fonts/DejaVuSans/DejaVuSans-Bold.ttf');
-
     font-family: "DejaVuSansMono";
     src: url('../../lib/fonts/DejaVuSansMono/DejaVuSansMono.ttf');
-
     font-family: "DejaVuSansMonoBold";
     src: url('../../lib/fonts/DejaVuSansMono/DejaVuSansMono-Bold.ttf');
 }
 
-.main-cont{
-  font-family: "DejaVu";
-  position: relative;
-overflow: hidden;
-display: flex;
+.main-cont {
+    font-family: "DejaVu";
+    position: relative;
+    overflow: hidden;
+    display: flex;
 
-
-.cont-left{
-  height: 100vh;
-  width: 40%;
-  background: url(../images/homeCover.jpg) no-repeat center;
-  background-size: 100% 100%;
-
-}
-.cont-right{
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  width: 60%;
-}
-.cont-right h2{
-  margin-right: 20px;
-}
-
-
-.img-middle{
-  position: absolute;
-  left: 26%;
-  top: 15%;
-  height: 680px;
-  width: 680px;
-  background: url(../images/LM004-Bandcamp.png) no-repeat center;
-  z-index: 1;
-  cursor: move;
-}
-
-
-
-
-.video-middle{
-  display: flex;
-  align-items:center;
-  justify-content:center;
-  height: 450px;
-  width: 750px;
-  position: absolute;
-  left: 54%;
-  top: 40%;
-  z-index: 2;
-  background-color: black;
-  cursor: move;
-
-    .iframe-home{
-      position: relative;
-      z-index: 1;
-      cursor: none;
-      pointer-events: none;
-
-    // .headers h1 a{
-    //   display: none !important;
-    // }
-
-    // .headers{
-    //   display: none !important;
-    // }
-
+    .cont-left {
+        height: 100vh;
+        width: 40%;
+        background: url("../images/homeCover.jpg") no-repeat center;
+        background-size: 100% 100%;
     }
 
-    .iframe-home2{
-      pointer-events: auto;
+    .cont-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        width: 60%;
+    }
+
+    .cont-right h2 {
+        margin-right: 20px;
+    }
+
+    .img-middle {
+        position: absolute;
+        left: 26%;
+        top: 15%;
+        height: 680px;
+        width: 680px;
+        background: url("../images/LM004-Bandcamp.png") no-repeat center;
+        z-index: 1;
+        cursor: move;
+    }
+
+    .video-middle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 450px;
+        width: 750px;
+        position: absolute;
+        left: 54%;
+        top: 40%;
+        z-index: 2;
+        background-color: black;
+        cursor: move;
+
+        .iframe-home {
+            position: relative;
+            z-index: 1;
+            cursor: none;
+            pointer-events: none;
+            // .headers h1 a{
+            //   display: none !important;
+            // }
+            // .headers{
+            //   display: none !important;
+            // }
+        }
+
+        .iframe-home2 {
+            pointer-events: auto;
+        }
+    }
+
+    .info-middle {
+        position: absolute;
+        height: 700px;
+        width: 450px;
+        background: url("../images/stickies.png") no-repeat center;
+        background-size: cover;
+        left: 60%;
+        top: 5%;
+        z-index: 3;
+        cursor: move;
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            font-family: "DejaVuBold";
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-left: 20px;
+            font-size: 22pt;
+        }
+    }
+
+    .logo {
+        background: url("../images/Logo_linear-72dpi-tailleOk.png") no-repeat center;
+        margin-right: 30px;
+        margin-bottom: 30px;
+        background-size: cover;
+        height: 260px;
+        width: 24px;
     }
 }
-.info-middle{
-  position: absolute;
-  height: 700px;
-  width: 450px;
-  background: url(../images/stickies.png) no-repeat center;
-  background-size: cover;
-  left: 60%;
-  top: 5%;
-  z-index: 3;
-  cursor: move;
-  display: flex;
-  flex-direction: column;
 
-    h2{
-      font-family: "DejaVuBold";
-      padding-top: 20px;
-      padding-right: 20px;
-      padding-left: 20px;
-      font-size: 22pt;
-    }
-
-    .cont-contact{
-      display: flex;
-      flex-direction: column;
-      padding-top: 20px;
+.cont-contact {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
     padding-right: 20px;
     padding-left: 20px;
     font-size: 20px;
 
-      a{
+    a {
         font-size: 16px;
         font-family: "DejaVuSansMonoBold";
         width: 150px;
         text-decoration: none;
         color: black;
         cursor: pointer;
-      }
-
-      a:hover{
-        color:blue;
-        text-decoration: underline;
-      }
-
     }
 
-}
-
-
- .logo{
-    background: url(../images/Logo_linear-72dpi-tailleOk.png) no-repeat center;
-  margin-right: 30px;
-  margin-bottom: 30px;
-  background-size: cover;
-   height: 260px;
-   width: 24px;
-  }
+    a:hover {
+        color: blue;
+        text-decoration: underline;
+    }
 }

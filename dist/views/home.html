@@ -2,12 +2,12 @@
   <div class="cont-left">
   </div>
 
-  <div class="img-middle draggable" ng-click="changeZIndex (1)"></div>
+  <div class="img-middle draggable" ng-mousedown="changeZIndex(1)"></div>
 
-  <div class="video-middle draggable" ng-click="changeZIndex (2)">
+  <div class="video-middle draggable" ng-click="changeZIndex(2)">
     <iframe class="iframe-home" ng-class="{'iframe-home2': !changeEvent}" ng-src="{{trustSrc(infoHome[0].video)}}" width="640" height="352" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
   </div>
-  <div class="info-middle draggable" id="resize" ng-click="changeZIndex (3)">
+  <div class="info-middle draggable" id="resize" ng-mousedown="changeZIndex(3)">
     <h2>Welcome.<br>{{infoHome[0].bioLinear}}</h2>
     <div class="cont-contact">
       <a ng-href="{{infoHome[0].contact}}">://  Contact:</a>
@@ -17,7 +17,7 @@
     </div>
     <div class="cont-contact">
       <div class="" ng-repeat="band in infoArtiste">
-        <a target="_blank" >://   {{band.name}}:</a>
+        <a ng-href="#/artist/{{band._id}}" >://   {{band.name}}:</a>
       </div>
     </div>
   </div>

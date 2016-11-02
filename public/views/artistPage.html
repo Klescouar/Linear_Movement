@@ -3,7 +3,16 @@
 	<div class="cont-img">
 	</div>
 
-	<div class="info-artist draggable"></div>
+	<div class="info-artist draggable">
+		<h1>{{band.name}}</h1>
+		<h2>{{band.bio}}</h2>
+		<div class="cont-contact">
+			<a ng-href="{{band.contact}}">://  Contact:</a>
+			<a target="_blank" ng-href="{{band.soundcloud}}">://   Soundcloud:</a>
+			<a target="_blank" ng-href="{{band.bandcamp}}">://   Bandcamp:</a>
+			<a target="_blank" ng-href="{{band.facebook}}">://   Facebook:</a>
+		</div>
+	</div>
 	<div class="cont-right-invisible">
 		<div class="logo"></div>
 	</div>
