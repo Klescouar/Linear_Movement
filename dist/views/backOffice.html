@@ -23,6 +23,8 @@
                 <input id="facebook" type="text" class="inputTitle" placeholder="facebook...">
                 <input id="discorgs" type="text" class="inputTitle" placeholder="discorgs...">
                 <input id="resident" type="text" class="inputTitle" placeholder="Resident...">
+                <input id="soundcloud" type="text" class="inputTitle" placeholder="soundcloud...">
+                <input id="photo" type="text" class="inputTitle" placeholder="Photo...">
                 <input id="dateEvent1" type="text" class="inputTitle" placeholder="dateEvent...">
                 <textarea id="descriptEvent1" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
                 <input id="spotEvent1" type="text" class="inputTitle" placeholder="spotEvent...">
@@ -50,6 +52,9 @@
                 <input id="soundcloudLinear" type="text" class="inputTitle" value="{{infoHome[0].soundcloud}}" placeholder="soundcloud...">
                 <input id="bandcampLinear" type="text" class="inputTitle" value="{{infoHome[0].bandcamp}}" placeholder="bandcamp...">
                 <input id="facebookLinear" type="text" class="inputTitle" value="{{infoHome[0].facebook}}" placeholder="facebook...">
+                <input id="videoLinear" type="text" class="inputTitle" value="{{infoHome[0].video}}" placeholder="URL video...">
+                <input id="backgroundLinear" type="text" class="inputTitle" value="{{infoHome[0].background}}" placeholder="URL background image...">
+                <input id="imageEpLinear" type="text" class="inputTitle" value="{{infoHome[0].EP}}" placeholder="URL image EP...">
                 <button class="confirm-button" ng-click="updateHome()">Update Home infos</button>
             </div>
 
@@ -67,24 +72,26 @@
                 <input id="facebookUpdate" type="text" class="inputTitle" placeholder="facebook..." value="{{editArtiste.facebook}}">
                 <input id="discorgsUpdate" type="text" class="inputTitle" placeholder="discorgs..." value="{{editArtiste.discorgs}}">
                 <input id="residentUpdate" type="text" class="inputTitle" placeholder="Resident..." value="{{editArtiste.resident}}">
-                <input id="dateEvent1Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[0].dateEvent1}}">
-                <textarea id="descriptEvent1Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[0].descriptEvent1}}</textarea>
-                <input id="spotEvent1Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[0].spotEvent1}}">
-                <input id="dateEvent2Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[1].dateEvent2}}">
-                <textarea id="descriptEvent2Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[1].descriptEvent2}}</textarea>
-                <input id="spotEvent2Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[1].spotEvent2}}">
-                <input id="dateEvent3Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[2].dateEvent3}}">
-                <textarea id="descriptEvent3Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[2].descriptEvent3}}</textarea>
-                <input id="spotEvent3Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[2].spotEvent3}}">
-                <input id="dateEvent4Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[3].dateEvent4}}">
-                <textarea id="descriptEvent4Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[3].descriptEvent4}}</textarea>
-                <input id="spotEvent4Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[3].spotEvent4}}">
-                <input id="dateEvent5Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[4].dateEvent5}}">
-                <textarea id="descriptEvent5Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[4].descriptEvent5}}</textarea>
-                <input id="spotEvent5Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[4].spotEvent5}}">
-                <input id="dateEvent6Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[5].dateEvent6}}">
-                <textarea id="descriptEvent6Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[5].descriptEvent6}}</textarea>
-                <input id="spotEvent6Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[5].spotEvent6}}">
+                <input id="soundcloudUpdate" type="text" class="inputTitle" placeholder="Soundcloud..." value="{{editArtiste.soundcloud}}">
+                <input id="photoUpdate" type="text" class="inputTitle" placeholder="Photo..." value="{{editArtiste.photo}}">
+                <input id="dateEvent1Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[0].dateEvent}}">
+                <textarea id="descriptEvent1Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[0].descriptEvent}}</textarea>
+                <input id="spotEvent1Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[0].spotEvent}}">
+                <input id="dateEvent2Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[1].dateEvent}}">
+                <textarea id="descriptEvent2Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[1].descriptEvent}}</textarea>
+                <input id="spotEvent2Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[1].spotEvent}}">
+                <input id="dateEvent3Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[2].dateEvent}}">
+                <textarea id="descriptEvent3Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[2].descriptEvent}}</textarea>
+                <input id="spotEvent3Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[2].spotEvent}}">
+                <input id="dateEvent4Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[3].dateEvent}}">
+                <textarea id="descriptEvent4Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[3].descriptEvent}}</textarea>
+                <input id="spotEvent4Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[3].spotEvent}}">
+                <input id="dateEvent5Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[4].dateEvent}}">
+                <textarea id="descriptEvent5Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[4].descriptEvent}}</textarea>
+                <input id="spotEvent5Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[4].spotEvent}}">
+                <input id="dateEvent6Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[5].dateEvent}}">
+                <textarea id="descriptEvent6Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[5].descriptEvent}}</textarea>
+                <input id="spotEvent6Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[5].spotEvent}}">
                 <button class="confirm-button" ng-click="updateArtiste(editArtiste._id)">Update fiche artiste</button>
             </div>
             <script type="text/javascript" src="../assets/js/app.js"></script>

@@ -4,11 +4,11 @@ app.controller('homeCtrl', ['$scope', '$http', '$sce', function($scope, $http, $
         $scope.infoHome = response;
     });
 
-		$http.get('/Artiste').success(function(response) {
-				console.log("I got the data I requested");
-				$scope.infoArtiste = response;
-				console.log($scope.infoArtiste[0].name);
-		});
+    $http.get('/Artiste').success(function(response) {
+        console.log("I got the data I requested");
+        $scope.infoArtiste = response;
+        console.log($scope.infoArtiste[0].name);
+    });
 
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);

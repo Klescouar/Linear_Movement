@@ -22,6 +22,8 @@ app.controller('boCtrl', ['$scope', '$http', function($scope, $http) {
             facebook: document.getElementById("facebook").value,
             discorgs: document.getElementById("discorgs").value,
             resident: document.getElementById("resident").value,
+            soundcloud: document.getElementById("soundcloud").value,
+            photo: document.getElementById("photo").value,
             events: [{
                 dateEvent1: document.getElementById("dateEvent1").value,
                 descriptEvent1: document.getElementById("descriptEvent1").value,
@@ -62,6 +64,9 @@ app.controller('boCtrl', ['$scope', '$http', function($scope, $http) {
             soundcloud: document.getElementById("soundcloudLinear").value,
             bandcamp: document.getElementById("bandcampLinear").value,
             facebook: document.getElementById("facebookLinear").value,
+            video: document.getElementById("videoLinear").value,
+            background: document.getElementById("backgroundLinear").value,
+            EP: document.getElementById("imageEpLinear").value,
         };
         $http.put('/linear_movement/updateHome', dataHome).success(function(response) {
             refresh();
@@ -92,6 +97,8 @@ app.controller('boCtrl', ['$scope', '$http', function($scope, $http) {
             facebook: document.getElementById("facebookUpdate").value,
             discorgs: document.getElementById("discorgsUpdate").value,
             resident: document.getElementById("residentUpdate").value,
+            soundcloud: document.getElementById("soundcloudUpdate").value,
+            photo: document.getElementById("photoUpdate").value,
             events: [{
                 dateEvent1: document.getElementById("dateEvent1Update").value,
                 descriptEvent1: document.getElementById("descriptEvent1Update").value,

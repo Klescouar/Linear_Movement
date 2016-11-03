@@ -3,10 +3,9 @@ const app = express()
 const bodyParser = require('body-parser')
 const mongojs = require('mongojs');
 const request = require('request');
+const fs = require('fs');
 
 let db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_movement', ['Articles', 'Home']);
-
-
 
 app.get('/backOffice', (req, res) => {
     app.use((req, res, next) => {
@@ -70,6 +69,9 @@ app.put('/linear_movement/updateHome', (req, res) => {
                 soundcloud: req.body.soundcloud,
                 bandcamp: req.body.bandcamp,
                 facebook: req.body.facebook,
+                video: req.body.video,
+                background: req.body.background,
+                EP: req.body.EP,
             }
         },
         new: true
@@ -124,30 +126,32 @@ app.put('/linear_movement/update/artiste/:id', (req, res) => {
                 facebook: req.body.facebook,
                 discorgs: req.body.discorgs,
                 resident: req.body.resident,
+                soundcloud: req.body.soundcloud,
+                photo: req.body.photo,
                 events: [{
-                    dateEvent1: req.body.events[0].dateEvent1,
-                    descriptEvent1: req.body.events[0].descriptEvent1,
-                    spotEvent1: req.body.events[0].spotEvent1,
+                    dateEvent: req.body.events[0].dateEvent1,
+                    descriptEvent: req.body.events[0].descriptEvent1,
+                    spotEvent: req.body.events[0].spotEvent1,
                 }, {
-                    dateEvent2: req.body.events[1].dateEvent2,
-                    descriptEvent2: req.body.events[1].descriptEvent2,
-                    spotEvent2: req.body.events[1].spotEvent2,
+                    dateEvent: req.body.events[1].dateEvent2,
+                    descriptEvent: req.body.events[1].descriptEvent2,
+                    spotEvent: req.body.events[1].spotEvent2,
                 }, {
-                    dateEvent3: req.body.events[2].dateEvent3,
-                    descriptEvent3: req.body.events[2].descriptEvent3,
-                    spotEvent3: req.body.events[2].spotEvent3,
+                    dateEvent: req.body.events[2].dateEvent3,
+                    descriptEvent: req.body.events[2].descriptEvent3,
+                    spotEvent: req.body.events[2].spotEvent3,
                 }, {
-                    dateEvent4: req.body.events[3].dateEvent4,
-                    descriptEvent4: req.body.events[3].descriptEvent4,
-                    spotEvent4: req.body.events[3].spotEvent4,
+                    dateEvent: req.body.events[3].dateEvent4,
+                    descriptEvent: req.body.events[3].descriptEvent4,
+                    spotEvent: req.body.events[3].spotEvent4,
                 }, {
-                    dateEvent5: req.body.events[4].dateEvent5,
-                    descriptEvent5: req.body.events[4].descriptEvent5,
-                    spotEvent5: req.body.events[4].spotEvent5,
+                    dateEvent: req.body.events[4].dateEvent5,
+                    descriptEvent: req.body.events[4].descriptEvent5,
+                    spotEvent: req.body.events[4].spotEvent5,
                 }, {
-                    dateEvent6: req.body.events[5].dateEvent6,
-                    descriptEvent6: req.body.events[5].descriptEvent6,
-                    spotEvent6: req.body.events[5].spotEvent6,
+                    dateEvent: req.body.events[5].dateEvent6,
+                    descriptEvent: req.body.events[5].descriptEvent6,
+                    spotEvent: req.body.events[5].spotEvent6,
                 }]
             }
         },
