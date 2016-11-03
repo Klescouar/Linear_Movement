@@ -5,7 +5,10 @@
   <div class="img-middle draggable" ng-mousedown="changeZIndex(1)"></div>
 
   <div class="video-middle draggable" ng-click="changeZIndex(2)">
-    <iframe class="iframe-home" ng-class="{'iframe-home2': !changeEvent}" ng-src="{{trustSrc(infoHome[0].video)}}" width="640" height="352" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <iframe class="iframe-home" ng-class="{'iframe-home2': !changeEvent}" ng-src="{{trustSrc(infoHome[0].video)}}" width="640" height="352" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+      
+    </iframe>
+    <div class="invisible-cont"></div>
   </div>
   <div class="info-middle draggable" id="resize" ng-mousedown="changeZIndex(3)">
     <h2>{{infoHome[0].bioLinear}}</h2>

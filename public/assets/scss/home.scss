@@ -72,13 +72,22 @@
             position: relative;
             z-index: 1;
             cursor: none;
-            pointer-events: none;
+            
             // .headers h1 a{
             //   display: none !important;
             // }
             // .headers{
             //   display: none !important;
             // }
+        }
+
+        .invisible-cont{
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 68%;
+            position: absolute;
+            z-index: 5;
         }
 
         .iframe-home2 {
@@ -191,5 +200,72 @@
     }
 
 }
+}
+
+@media (max-width: 768px) {
+
+.main-cont{
+    display: flex;
+    flex-direction:column;
+    justify-content:flex-start;
+        
+        
+
+         .cont-left {
+            width: 100%;
+            background: url("../images/homeCover.jpg") no-repeat center;
+            background-size:100% 100%;
+    }
+    .cont-right {
+        display: none;
+    }
+    
+    .img-middle{
+        position: relative;
+        min-height: 320px;
+        min-width: 50%;
+    }
+    .info-middle {
+        left: 0;
+        top: 62.2%;
+        width: 50%;
+        height: 320px;
+
+         h2{
+            font-size: 10pt;
+        }
+        .cont-contact {
+            font-size: 10px;
+            padding-top: 10px;
+        }
+    }
+    .video-middle{
+        left: 0%;
+        height: 300px;
+        width: 100%;
+        position: relative;
+
+        .iframe-home{
+            height: 300px;
+        width: 100%;
+
+        }
+    }
+}
+   
+}
+
+@media (max-width: 720px) {
+
+.main-cont{
+    .img-middle{
+        display: none;
+    }
+    .info-middle {
+        position: relative;
+        width: 100%;
+    }
+}
+
 }
 
