@@ -1,11 +1,19 @@
 <div class="main-cont" ng-controller="artistPageCtrl">
-	<div class="cont-left-artist"></div>
+	<div class="main-cont-left">
+		<div class="cont-left-artist" ng-repeat="event in events">
+			<div class="cont-event">
+				<p>{{event.dateEvent}}</p>
+				<p>{{event.descriptEvent}}</p>
+				<p>{{event.spotEvent}}</p>
+			</div>
+		</div>
+	</div>
 	<div class="cont-img">
 	</div>
 
 	<div class="info-artist draggable">
 		<h1>{{band.name}}</h1>
-		<h2>{{band.bio}}</h2>
+		<p>{{band.bio}}</p>
 		<div class="cont-contact">
 			<a ng-href="{{band.contact}}">://  Contact:</a>
 			<a target="_blank" ng-href="{{band.soundcloud}}">://   Soundcloud:</a>

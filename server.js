@@ -125,29 +125,29 @@ app.put('/linear_movement/update/artiste/:id', (req, res) => {
                 discorgs: req.body.discorgs,
                 resident: req.body.resident,
                 events: [{
-                    dateEvent1: req.body.events[0].dateEvent1,
-                    descriptEvent1: req.body.events[0].descriptEvent1,
-                    spotEvent1: req.body.events[0].spotEvent1,
+                    dateEvent: req.body.events[0].dateEvent1,
+                    descriptEvent: req.body.events[0].descriptEvent1,
+                    spotEvent: req.body.events[0].spotEvent1,
                 }, {
-                    dateEvent2: req.body.events[1].dateEvent2,
-                    descriptEvent2: req.body.events[1].descriptEvent2,
-                    spotEvent2: req.body.events[1].spotEvent2,
+                    dateEvent: req.body.events[1].dateEvent2,
+                    descriptEvent: req.body.events[1].descriptEvent2,
+                    spotEvent: req.body.events[1].spotEvent2,
                 }, {
-                    dateEvent3: req.body.events[2].dateEvent3,
-                    descriptEvent3: req.body.events[2].descriptEvent3,
-                    spotEvent3: req.body.events[2].spotEvent3,
+                    dateEvent: req.body.events[2].dateEvent3,
+                    descriptEvent: req.body.events[2].descriptEvent3,
+                    spotEvent: req.body.events[2].spotEvent3,
                 }, {
-                    dateEvent4: req.body.events[3].dateEvent4,
-                    descriptEvent4: req.body.events[3].descriptEvent4,
-                    spotEvent4: req.body.events[3].spotEvent4,
+                    dateEvent: req.body.events[3].dateEvent4,
+                    descriptEvent: req.body.events[3].descriptEvent4,
+                    spotEvent: req.body.events[3].spotEvent4,
                 }, {
-                    dateEvent5: req.body.events[4].dateEvent5,
-                    descriptEvent5: req.body.events[4].descriptEvent5,
-                    spotEvent5: req.body.events[4].spotEvent5,
+                    dateEvent: req.body.events[4].dateEvent5,
+                    descriptEvent: req.body.events[4].descriptEvent5,
+                    spotEvent: req.body.events[4].spotEvent5,
                 }, {
-                    dateEvent6: req.body.events[5].dateEvent6,
-                    descriptEvent6: req.body.events[5].descriptEvent6,
-                    spotEvent6: req.body.events[5].spotEvent6,
+                    dateEvent: req.body.events[5].dateEvent6,
+                    descriptEvent: req.body.events[5].descriptEvent6,
+                    spotEvent: req.body.events[5].spotEvent6,
                 }]
             }
         },

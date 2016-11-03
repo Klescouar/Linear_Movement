@@ -1,16 +1,31 @@
+    //DEJAVUSANS
+
 @font-face {
+
     font-family: "DejaVu";
     src: url('../../lib/fonts/DejaVuSans/DejaVuSans.ttf');
-    font-family: "DejaVuBold";
+}
+@font-face {
+    font-family: "DejaVuSansBold";
     src: url('../../lib/fonts/DejaVuSans/DejaVuSans-Bold.ttf');
+}
+    //DEJAVUSANSMONO
+@font-face {
     font-family: "DejaVuSansMono";
     src: url('../../lib/fonts/DejaVuSansMono/DejaVuSansMono.ttf');
+}
+@font-face {
     font-family: "DejaVuSansMonoBold";
     src: url('../../lib/fonts/DejaVuSansMono/DejaVuSansMono-Bold.ttf');
 }
 
+
+
+// @include font-face("DejaVu", font-files("../../lib/fonts/DejaVuSans/DejaVuSans.ttf"));
+
+
 .main-cont {
-    font-family: "DejaVu";
+
     position: relative;
     overflow: hidden;
     display: flex;
@@ -76,6 +91,7 @@
     }
 
     .info-middle {
+        
         position: absolute;
         height: 700px;
         width: 450px;
@@ -89,11 +105,11 @@
         flex-direction: column;
 
         h2 {
-            font-family: "DejaVuBold";
+            font-family: "DejaVuSansBold";                    
             padding-top: 20px;
             padding-right: 20px;
             padding-left: 20px;
-            font-size: 22pt;
+            font-size: 21pt;
         }
     }
 

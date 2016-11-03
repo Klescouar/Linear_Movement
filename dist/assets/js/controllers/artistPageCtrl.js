@@ -6,7 +6,9 @@ console.log(id);
 
 	$http.get('/linear_movement/artiste/' + id).success(function(response) {
 			$scope.band = response;
-			console.log($scope.band);
+			$scope.events = $scope.band.events;
+			console.log($scope.events);
+			console.log($scope.band)
 	});
 
 $(document).ready(function() {
