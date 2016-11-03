@@ -3,10 +3,9 @@ const app = express()
 const bodyParser = require('body-parser')
 const mongojs = require('mongojs');
 const request = require('request');
+const fs = require('fs');
 
 let db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_movement', ['Articles', 'Home']);
-
-
 
 app.get('/backOffice', (req, res) => {
     app.use((req, res, next) => {
@@ -70,6 +69,9 @@ app.put('/linear_movement/updateHome', (req, res) => {
                 soundcloud: req.body.soundcloud,
                 bandcamp: req.body.bandcamp,
                 facebook: req.body.facebook,
+                video: req.body.video,
+                background: req.body.background,
+                EP: req.body.EP,
             }
         },
         new: true
@@ -124,6 +126,8 @@ app.put('/linear_movement/update/artiste/:id', (req, res) => {
                 facebook: req.body.facebook,
                 discorgs: req.body.discorgs,
                 resident: req.body.resident,
+                soundcloud: req.body.soundcloud,
+                photo: req.body.photo,
                 events: [{
                     dateEvent: req.body.events[0].dateEvent1,
                     descriptEvent: req.body.events[0].descriptEvent1,
