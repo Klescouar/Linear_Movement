@@ -35,32 +35,56 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  h1{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.71);
+  }
 }
 
 .inputTitle{
   width: 400px;
   height: 30px;
-  margin: 30px;
+  margin: 10px;
   padding-left: 10px;
+}
+
+.event{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border-top: 1px dashed rgb(98, 98, 98);
 }
 
 .inputCorpus{
   width: 800px;
-  height: 350px;
+  height: 100px;
   padding: 15px;
-  margin: 30px;
+  margin: 10px;
 }
 
 .textEvent{
   width: 800px;
-  height: 150px;
+  height: 100px;
   padding: 15px;
-  margin: 30px;
+  margin: 10px;
 }
 
 .confirm-button{
   margin: 20px;
+  background-color: rgb(106, 106, 106);
+  padding: 20px;
+  border-radius: 7px;
+  cursor: pointer;
+  color: white;
 }
+
+.confirm-button:hover{
+  background-color: rgb(149, 149, 149);
+}
+
 
 .remove-or-edit{
   display: flex;
