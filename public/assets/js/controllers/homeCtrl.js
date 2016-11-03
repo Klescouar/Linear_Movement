@@ -64,7 +64,7 @@ app.controller('homeCtrl', ['$scope', '$http', '$sce', function($scope, $http, $
 
 // 	player.getPaused()
 // 		.then(function(paused){
-// 			playPause(paused);			
+// 			playPause(paused);
 // 		});
 
 // 	function playPause(paused){
@@ -77,7 +77,7 @@ app.controller('homeCtrl', ['$scope', '$http', '$sce', function($scope, $http, $
 // 		    	player.pause();
 // 		 }
 
-// 	}		
-   
+// 	}
+
 // }
 }]);﻿

@@ -9,7 +9,7 @@ const db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_
 
 app.get('/backOffice', (req, res) => {
     app.use((req, res, next) => {
-        const auth;
+        let auth;
         if (req.headers.authorization) {
             auth = new Buffer(req.headers.authorization.substring(6), 'base64').toString().split(':');
         }
