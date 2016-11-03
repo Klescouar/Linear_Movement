@@ -93,7 +93,7 @@ app.post('/linear_movement/addHome', (req, res) => {
     });
 });
 
-app.deconste('/linear_movement/remove/artiste/:id', (req, res) => {
+app.delete('/linear_movement/remove/artiste/:id', (req, res) => {
     const id = req.params.id;
     console.log(id);
     db.Articles.remove({
