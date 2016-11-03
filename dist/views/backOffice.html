@@ -26,42 +26,44 @@
                 <input id="soundcloud" type="text" class="inputTitle" placeholder="soundcloud...">
                 <input id="photo" type="text" class="inputTitle" placeholder="Photo...">
                 <div class="event">
-                    <h1>EVENT N°1</h1>
+                  <h1>EVENT N°1</h1>
                     <input id="dateEvent1" type="text" class="inputTitle" placeholder="dateEvent...">
                     <textarea id="descriptEvent1" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
                     <input id="spotEvent1" type="text" class="inputTitle" placeholder="spotEvent...">
                 </div>
                 <div class="event">
-                    <h1>EVENT N°2</h1>
+                  <h1>EVENT N°2</h1>
                     <input id="dateEvent2" type="text" class="inputTitle" placeholder="dateEvent...">
                     <textarea id="descriptEvent2" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
                     <input id="spotEvent2" type="text" class="inputTitle" placeholder="spotEvent...">
                 </div>
                 <div class="event">
-                    <h1>EVENT N°3</h1>
+                  <h1>EVENT N°3</h1>
                     <input id="dateEvent3" type="text" class="inputTitle" placeholder="dateEvent...">
                     <textarea id="descriptEvent3" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
                     <input id="spotEvent3" type="text" class="inputTitle" placeholder="spotEvent...">
                 </div>
                 <div class="event">
-                    <h1>EVENT N°4</h1>
+                  <h1>EVENT N°4</h1>
                     <input id="dateEvent4" type="text" class="inputTitle" placeholder="dateEvent...">
                     <textarea id="descriptEvent4" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
                     <input id="spotEvent4" type="text" class="inputTitle" placeholder="spotEvent...">
                 </div>
                 <div class="event">
-                    <h1>EVENT N°5</h1>
+                  <h1>EVENT N°5</h1>
                     <input id="dateEvent5" type="text" class="inputTitle" placeholder="dateEvent...">
                     <textarea id="descriptEvent5" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
                     <input id="spotEvent5" type="text" class="inputTitle" placeholder="spotEvent...">
                 </div>
                 <div class="event">
-                    <h1>EVENT N°6</h1>
+                  <h1>EVENT N°6</h1>
                     <input id="dateEvent6" type="text" class="inputTitle" placeholder="dateEvent...">
                     <textarea id="descriptEvent6" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
                     <input id="spotEvent6" type="text" class="inputTitle" placeholder="spotEvent...">
                     <button class="confirm-button" ng-click="addArtist()">Ajouter article</button>
                 </div>
+              </div>
+
 
                 <div class="showChoice" ng-if="show === 1">
                     <textarea id="bioLinear" class="inputCorpus" name="name" placeholder="Description linear_movement...">{{infoHome[0].bioLinear}}</textarea>
@@ -79,7 +81,7 @@
                     <div ng-repeat="artiste in infoArtiste" class="remove-or-edit">
                         <p>{{artiste.name}}</p>
                         <button class="confirm-button" ng-click="removeArtiste(artiste._id)">Remove Artiste</button>
-                        <button class="confirm-button" ng-click="editArtiste(artiste._id)">Edit Artiste</button>
+                        <button class="confirm-button" ng-click="showInfoArtiste(artiste._id)">Edit Artiste</button>
                     </div>
                 </div>
 
@@ -91,24 +93,42 @@
                     <input id="residentUpdate" type="text" class="inputTitle" placeholder="Resident..." value="{{editArtiste.resident}}">
                     <input id="soundcloudUpdate" type="text" class="inputTitle" placeholder="Soundcloud..." value="{{editArtiste.soundcloud}}">
                     <input id="photoUpdate" type="text" class="inputTitle" placeholder="Photo..." value="{{editArtiste.photo}}">
+                    <div class="event">
+                      <h1>EVENT N°1</h1>
                     <input id="dateEvent1Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[0].dateEvent}}">
                     <textarea id="descriptEvent1Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[0].descriptEvent}}</textarea>
                     <input id="spotEvent1Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[0].spotEvent}}">
+                  </div>
+                    <div class="event">
+                      <h1>EVENT N°1</h1>
                     <input id="dateEvent2Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[1].dateEvent}}">
                     <textarea id="descriptEvent2Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[1].descriptEvent}}</textarea>
                     <input id="spotEvent2Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[1].spotEvent}}">
+                  </div>
+                    <div class="event">
+                      <h1>EVENT N°1</h1>
                     <input id="dateEvent3Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[2].dateEvent}}">
                     <textarea id="descriptEvent3Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[2].descriptEvent}}</textarea>
                     <input id="spotEvent3Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[2].spotEvent}}">
+                  </div>
+                    <div class="event">
+                      <h1>EVENT N°1</h1>
                     <input id="dateEvent4Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[3].dateEvent}}">
                     <textarea id="descriptEvent4Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[3].descriptEvent}}</textarea>
                     <input id="spotEvent4Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[3].spotEvent}}">
+                  </div>
+                    <div class="event">
+                      <h1>EVENT N°1</h1>
                     <input id="dateEvent5Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[4].dateEvent}}">
                     <textarea id="descriptEvent5Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[4].descriptEvent}}</textarea>
                     <input id="spotEvent5Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[4].spotEvent}}">
+                  </div>
+                    <div class="event">
+                      <h1>EVENT N°1</h1>
                     <input id="dateEvent6Update" type="text" class="inputTitle" placeholder="dateEvent..." value="{{editArtiste.events[5].dateEvent}}">
                     <textarea id="descriptEvent6Update" name="name" class="textEvent" placeholder="Description Event...">{{editArtiste.events[5].descriptEvent}}</textarea>
                     <input id="spotEvent6Update" type="text" class="inputTitle" placeholder="Salle..." value="{{editArtiste.events[5].spotEvent}}">
+                  </div>
                     <button class="confirm-button" ng-click="updateArtiste(editArtiste._id)">Update fiche artiste</button>
                 </div>
                 <script type="text/javascript" src="../assets/js/app.js"></script>

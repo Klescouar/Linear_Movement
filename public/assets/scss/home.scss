@@ -19,11 +19,6 @@
     src: url('../../lib/fonts/DejaVuSansMono/DejaVuSansMono-Bold.ttf');
 }
 
-
-
-// @include font-face("DejaVu", font-files("../../lib/fonts/DejaVuSans/DejaVuSans.ttf"));
-
-
 .main-cont {
 
     position: relative;
@@ -51,10 +46,11 @@
     .img-middle {
         position: absolute;
         left: 26%;
-        top: 15%;
-        height: 680px;
-        width: 680px;
+        top:23.6%;
+        min-height: 600px;
+        min-width: 600px;
         background: url("../images/LM004-Bandcamp.png") no-repeat center;
+        background-size:cover;
         z-index: 1;
         cursor: move;
     }
@@ -159,5 +155,41 @@
 
 .iframe-home .player .controls{
       display: none!important;
+}
+
+@media (max-width: 1280px) {
+
+.main-cont {
+
+    .img-middle {
+        min-height: 400px;
+        min-width: 400px;
+    
+    }
+    .video-middle{
+        height: 300px;
+        width: 550px;
+
+        .iframe-home{
+            height: 300px;
+        width: 550px;
+        }
+    }
+    .info-middle{
+        height: 450px;
+        width: 300px;
+
+        h2{
+            font-size: 12pt;
+        }
+    }
+
+    .cont-contact {
+        a{
+            font-size: 12px;
+        }
+    }
+
+}
 }
 

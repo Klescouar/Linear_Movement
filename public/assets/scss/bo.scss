@@ -35,6 +35,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgb(222, 222, 222);
   h1{
     text-align: center;
     color: rgba(0, 0, 0, 0.71);
@@ -42,10 +43,16 @@
 }
 
 .inputTitle{
-  width: 400px;
+  width: 300px;
   height: 30px;
   margin: 10px;
   padding-left: 10px;
+}
+
+.reseau{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .event{
@@ -59,26 +66,27 @@
 }
 
 .inputCorpus{
-  width: 800px;
+  width: 500px;
   height: 100px;
   padding: 15px;
   margin: 10px;
 }
 
 .textEvent{
-  width: 800px;
+  width: 500px;
   height: 100px;
   padding: 15px;
   margin: 10px;
 }
 
 .confirm-button{
-  margin: 20px;
+  margin: 10px;
   background-color: rgb(106, 106, 106);
-  padding: 20px;
+  padding: 10px;
   border-radius: 7px;
   cursor: pointer;
   color: white;
+  border: none;
 }
 
 .confirm-button:hover{

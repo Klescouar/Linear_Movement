@@ -80,11 +80,11 @@ app.controller('boCtrl', ['$scope', '$http', function($scope, $http) {
             $http.delete('/linear_movement/remove/artiste/' + id).success(function(response) {
                 refresh();
             });
-            alert("Artiste supprimé!")
+            alert("Artiste supprimé!");
         }
     };
 
-    $scope.editArtiste = function(id) {
+    $scope.showInfoArtiste = function(id) {
         $scope.show = 3;
         console.log(id);
         $http.get('/linear_movement/artiste/' + id).success(function(response) {
