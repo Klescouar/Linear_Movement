@@ -1,8 +1,12 @@
-.main-cont{
+.main-cont-artist{
 	// font-family: "DejaVu";
+	position: relative;
+   	 overflow: hidden;
+	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items:center;
+
 
 	.main-cont-left{
 		display: flex;
@@ -22,7 +26,7 @@
 				margin: 0;
 				margin-bottom: 15px;
 				margin-top: 20px;
-				margin-left: 20px;
+				margin-left: 5px;
 				margin-right: 20px;
 				
 				p{
@@ -35,21 +39,18 @@
 	}
 
 	.cont-img{
-		height: 500px;
-		width: 34%;
+		min-height: 500px;
+		min-width: 500px;
 		background: url(../images/hydergine.png) no-repeat center;
-		
+		background-size: cover;
 	}
 
 	.info-artist{
-		// font-family: "DejaVuSansBold";                    
-  //           padding-top: 20px;
-  //           padding-right: 20px;
-  //           padding-left: 20px;
-  //           font-size: 21pt;
+
 		cursor: move;
 		position: absolute;
 		left: 16%;
+		top: 9%;
 		height: 700px;
   		width: 450px;
   		background: url(../images/stickies.png) no-repeat center;
@@ -91,4 +92,43 @@
    			width: 24px;
 		}
 	}
+}
+
+@media (max-width: 1280px) {
+.main-cont-artist{
+	.cont-img{
+		min-height: 300px;
+		min-width: 300px;
+	}
+	.main-cont-left{
+
+		.cont-left-artist{
+
+		
+			.cont-event{
+
+				
+				p{
+					font-size: 12pt;
+				}
+			}
+		}
+
+	}
+	.info-artist{
+		height: 500px;
+		width: 300px;
+
+		h1{
+			font-size: 20pt;
+		}
+		p{
+			font-size: 12pt;
+		}
+
+		a{
+			font-size: 10pt;
+		}
+	}
+}
 }
