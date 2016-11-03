@@ -72,13 +72,22 @@
             position: relative;
             z-index: 1;
             cursor: none;
-            pointer-events: none;
+            
             // .headers h1 a{
             //   display: none !important;
             // }
             // .headers{
             //   display: none !important;
             // }
+        }
+
+        .invisible-cont{
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 68%;
+            position: absolute;
+            z-index: 5;
         }
 
         .iframe-home2 {
