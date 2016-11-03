@@ -6,7 +6,7 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'views/home.html'
         })
 
-        .when('/artist:id_artist', {
+        .when('/artist/:id_artist', {
             templateUrl: 'views/artistPage.html'
         })
         .when('/backOffice', {

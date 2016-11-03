@@ -4,27 +4,26 @@ const bodyParser = require('body-parser')
 const mongojs = require('mongojs');
 const request = require('request');
 
-var db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_movement', ['Articles', 'Home']);
+let db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_movement', ['Articles', 'Home']);
 
-app.use(function(req, res, next) {
-    var auth;
-    if (req.headers.authorization) {
-        auth = new Buffer(req.headers.authorization.substring(6), 'base64').toString().split(':');
-    }
-    if (!auth || auth[0] !== 'Florent' || auth[1] !== 'linear2702') {
-        res.statusCode = 401;
-        res.setHeader('WWW-Authenticate', 'Basic realm="MyRealmName"');
-        res.end('Unauthorized');
-    } else {
-        next();
-    }
-});
 
-app.get('/backOffice', function(req, res) {
+
+app.get('/backOffice', (req, res) => {
+    app.use((req, res, next) => {
+        let auth;
+        if (req.headers.authorization) {
+            auth = new Buffer(req.headers.authorization.substring(6), 'base64').toString().split(':');
+        }
+        if (!auth || auth[0] !== 'Florent' || auth[1] !== 'linear2702') {
+            res.statusCode = 401;
+            res.setHeader('WWW-Authenticate', 'Basic realm="MyRealmName"');
+            res.end('Unauthorized');
+        } else {
+            next();
+        }
+    });
     res.sendFile(__dirname + '/dist/views/backOffice.html');
 });
-
-console.log(__dirname);
 
 app.listen(process.env.PORT || 6868);
 
@@ -35,32 +34,65 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(express.static('dist'));
 
-app.get('/', (req, res) => {
-    db.collection('quotes').find().toArray((err, result) => {
-        if (err) return console.log(err)
-        res.render('index.html', {
-            quotes: result
-        })
-    })
-})
+// app.get('/', (req, res) => {
+//     db.collection('quotes').find().toArray((err, result) => {
+//         if (err) return console.log(err)
+//         res.render('index.html', {
+//             quotes: result
+//         })
+//     })
+// })
 
-app.get('/linear_movement', function(req, res) {
+app.get('/Artiste', (req, res) => {
     console.log('I received a GET request');
-
     db.Articles.find(function(err, docs) {
         res.json(docs);
-        console.log(docs);
+        // console.log(docs);
     });
 });
-app.post('/linear_movement/addArtist', function(req, res) {
-    console.log(req.body);
+app.get('/Home', (req, res) => {
+    console.log('I received a GET request');
+    db.Home.find(function(err, docs) {
+        res.json(docs);
+        // console.log(docs);
+    });
+});
+app.put('/linear_movement/updateHome', (req, res) => {
+    let id = req.params.id;
+    db.Home.findAndModify({
+        query: {
+            _id: mongojs.ObjectId('5819f74dda1b16157afd60c3')
+        },
+        update: {
+            $set: {
+                bioLinear: req.body.bioLinear,
+                contact: req.body.contact,
+                soundcloud: req.body.soundcloud,
+                bandcamp: req.body.bandcamp,
+                facebook: req.body.facebook,
+            }
+        },
+        new: true
+    }, function(err, doc) {
+        res.json(doc);
+    });
+});
+app.post('/linear_movement/addArtist', (req, res) => {
+    // console.log(req.body);
     db.Articles.insert(req.body, function(err, doc) {
         res.json(doc);
     });
 });
 
-app.delete('/linear_movement/remove/:id', function(req, res) {
-    var id = req.params.id;
+app.post('/linear_movement/addHome', (req, res) => {
+    // console.log(req.body);
+    db.Home.insert(req.body, function(err, doc) {
+        res.json(doc);
+    });
+});
+
+app.delete('/linear_movement/remove/artiste/:id', (req, res) => {
+    let id = req.params.id;
     console.log(id);
     db.Articles.remove({
         _id: mongojs.ObjectId(id)
@@ -69,8 +101,8 @@ app.delete('/linear_movement/remove/:id', function(req, res) {
     });
 });
 
-app.get('/linear_movement/:id', function(req, res) {
-    var id = req.params.id;
+app.get('/linear_movement/artiste/:id', (req, res) => {
+    let id = req.params.id;
     console.log(id);
     db.Articles.findOne({
         _id: mongojs.ObjectId(id)
@@ -79,17 +111,44 @@ app.get('/linear_movement/:id', function(req, res) {
     });
 });
 
-app.put('/linear_movement/update/:id', function(req, res) {
-    var id = req.params.id;
-    console.log(req.body.name);
+app.put('/linear_movement/update/artiste/:id', (req, res) => {
+    let id = req.params.id;
     db.Articles.findAndModify({
         query: {
             _id: mongojs.ObjectId(id)
         },
         update: {
             $set: {
-                title: req.body.title,
-                corpus: req.body.corpus,
+                name: req.body.name,
+                bio: req.body.bio,
+                facebook: req.body.facebook,
+                discorgs: req.body.discorgs,
+                resident: req.body.resident,
+                events: [{
+                    dateEvent1: req.body.events[0].dateEvent1,
+                    descriptEvent1: req.body.events[0].descriptEvent1,
+                    spotEvent1: req.body.events[0].spotEvent1,
+                }, {
+                    dateEvent2: req.body.events[1].dateEvent2,
+                    descriptEvent2: req.body.events[1].descriptEvent2,
+                    spotEvent2: req.body.events[1].spotEvent2,
+                }, {
+                    dateEvent3: req.body.events[2].dateEvent3,
+                    descriptEvent3: req.body.events[2].descriptEvent3,
+                    spotEvent3: req.body.events[2].spotEvent3,
+                }, {
+                    dateEvent4: req.body.events[3].dateEvent4,
+                    descriptEvent4: req.body.events[3].descriptEvent4,
+                    spotEvent4: req.body.events[3].spotEvent4,
+                }, {
+                    dateEvent5: req.body.events[4].dateEvent5,
+                    descriptEvent5: req.body.events[4].descriptEvent5,
+                    spotEvent5: req.body.events[4].spotEvent5,
+                }, {
+                    dateEvent6: req.body.events[5].dateEvent6,
+                    descriptEvent6: req.body.events[5].descriptEvent6,
+                    spotEvent6: req.body.events[5].spotEvent6,
+                }]
             }
         },
         new: true
