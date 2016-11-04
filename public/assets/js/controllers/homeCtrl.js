@@ -2,6 +2,7 @@ app.controller('homeCtrl', ['$scope', '$http', '$sce', function($scope, $http, $
     $http.get('/Home').success(function(response) {
         console.log("I got the data I requested");
         $scope.infoHome = response;
+        console.log($scope.infoHome[0].EP);
     });
 
     $http.get('/Artiste').success(function(response) {
