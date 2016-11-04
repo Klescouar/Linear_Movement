@@ -1,12 +1,12 @@
 <div class="main-cont" ng-controller="homeCtrl">
-  <div class="cont-left" ng-click="playVideo()">
+  <div class="cont-left" ng-style="{'background-image':'url('+infoHome[0].background+')'}" ng-click="playVideo()">
   </div>
 
-  <div class="img-middle draggable" ng-mousedown="changeZIndex(1)"></div>
+  <div class="img-middle draggable" ng-style="{'background-image':'url('+infoHome[0].EP+')'}" ng-mousedown="changeZIndex(1)"></div>
 
   <div class="video-middle draggable" ng-click="changeZIndex(2)">
     <iframe class="iframe-home" ng-class="{'iframe-home2': !changeEvent}" ng-src="{{trustSrc(infoHome[0].video)}}" width="640" height="352" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
-      
+
     </iframe>
     <div class="invisible-cont"></div>
   </div>
@@ -19,9 +19,7 @@
       <a target="_blank" ng-href="{{infoHome[0].facebook}}">://   Facebook:</a>
     </div>
     <div class="cont-contact">
-      <div class="" ng-repeat="band in infoArtiste">
-        <a ng-href="#/artist/{{band._id}}" >://   {{band.name}}:</a>
-      </div>
+        <a ng-repeat="band in infoArtiste" ng-href="#/artist/{{band._id}}" >://   {{band.name}}:</a>
     </div>
   </div>
   <div class="cont-right">

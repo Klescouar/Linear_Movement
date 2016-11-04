@@ -5,11 +5,11 @@ const mongojs = require('mongojs');
 const request = require('request');
 const fs = require('fs');
 
-let db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_movement', ['Articles', 'Home']);
+const db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_movement', ['Articles', 'Home']);
 
 app.get('/backOffice', (req, res) => {
     app.use((req, res, next) => {
-        let auth;
+        const auth = [];
         if (req.headers.authorization) {
             auth = new Buffer(req.headers.authorization.substring(6), 'base64').toString().split(':');
         }
@@ -57,7 +57,7 @@ app.get('/Home', (req, res) => {
     });
 });
 app.put('/linear_movement/updateHome', (req, res) => {
-    let id = req.params.id;
+    const id = req.params.id;
     db.Home.findAndModify({
         query: {
             _id: mongojs.ObjectId('5819f74dda1b16157afd60c3')
@@ -94,7 +94,7 @@ app.post('/linear_movement/addHome', (req, res) => {
 });
 
 app.delete('/linear_movement/remove/artiste/:id', (req, res) => {
-    let id = req.params.id;
+    const id = req.params.id;
     console.log(id);
     db.Articles.remove({
         _id: mongojs.ObjectId(id)
@@ -104,7 +104,7 @@ app.delete('/linear_movement/remove/artiste/:id', (req, res) => {
 });
 
 app.get('/linear_movement/artiste/:id', (req, res) => {
-    let id = req.params.id;
+    const id = req.params.id;
     console.log(id);
     db.Articles.findOne({
         _id: mongojs.ObjectId(id)
@@ -114,7 +114,7 @@ app.get('/linear_movement/artiste/:id', (req, res) => {
 });
 
 app.put('/linear_movement/update/artiste/:id', (req, res) => {
-    let id = req.params.id;
+    const id = req.params.id;
     db.Articles.findAndModify({
         query: {
             _id: mongojs.ObjectId(id)
