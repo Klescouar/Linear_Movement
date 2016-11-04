@@ -1,7 +1,5 @@
-    //DEJAVUSANS
-
+//DEJAVUSANS
 @font-face {
-
     font-family: "DejaVu";
     src: url('../../lib/fonts/DejaVuSans/DejaVuSans.ttf');
 }
@@ -9,7 +7,7 @@
     font-family: "DejaVuSansBold";
     src: url('../../lib/fonts/DejaVuSans/DejaVuSans-Bold.ttf');
 }
-    //DEJAVUSANSMONO
+//DEJAVUSANSMONO
 @font-face {
     font-family: "DejaVuSansMono";
     src: url('../../lib/fonts/DejaVuSansMono/DejaVuSansMono.ttf');
@@ -20,7 +18,6 @@
 }
 
 .main-cont {
-
     position: relative;
     overflow: hidden;
     display: flex;
@@ -46,11 +43,11 @@
     .img-middle {
         position: absolute;
         left: 26%;
-        top:23.6%;
+        top: 23.6%;
         min-height: 600px;
         min-width: 600px;
         // background: url("../images/LM004-Bandcamp.png") no-repeat center;
-        background-size:cover;
+        background-size: cover;
         z-index: 1;
         cursor: move;
     }
@@ -72,7 +69,6 @@
             position: relative;
             z-index: 1;
             cursor: none;
-
             // .headers h1 a{
             //   display: none !important;
             // }
@@ -81,7 +77,7 @@
             // }
         }
 
-        .invisible-cont{
+        .invisible-cont {
             top: 10%;
             left: 10%;
             width: 80%;
@@ -96,12 +92,11 @@
     }
 
     .info-middle {
-
         position: absolute;
         height: 700px;
         width: 450px;
         background: url("../images/stickies.png") no-repeat center;
-        background-size: cover;
+        background-size: contain;
         left: 60%;
         top: 5%;
         z-index: 3;
@@ -151,120 +146,111 @@
     }
 }
 
-
- .logo{
-    background: url(../images/Logo_linear-72dpi-tailleOk.png) no-repeat center;
-  margin-right: 30px;
-  margin-bottom: 30px;
-  background-size: cover;
-   height: 260px;
-   width: 24px;
-  }
-
-
-.iframe-home .player .controls{
-      display: none!important;
+.logo {
+    background: url("../images/Logo_linear-72dpi-tailleOk.png") no-repeat center;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    background-size: cover;
+    height: 260px;
+    width: 24px;
 }
 
+.iframe-home .player .controls {
+    display: none!important;
+}
 @media (max-width: 1380px) {
+    .main-cont {
+        .img-middle {
+            min-height: 400px;
+            min-width: 400px;
+        }
 
-.main-cont {
-
-    .img-middle {
-        min-height: 400px;
-        min-width: 400px;
-
-    }
-    .video-middle{
-        height: 300px;
-        width: 550px;
-
-        .iframe-home{
+        .video-middle {
             height: 300px;
-        width: 550px;
+            width: 550px;
+
+            .iframe-home {
+                height: 300px;
+                width: 550px;
+            }
+        }
+
+        .info-middle {
+            height: 450px;
+            width: 300px;
+
+            h2 {
+                font-size: 12pt;
+            }
+        }
+
+        .cont-contact {
+            a {
+                font-size: 12px;
+            }
         }
     }
-    .info-middle{
-        height: 450px;
-        width: 300px;
-
-        h2{
-            font-size: 12pt;
-        }
-    }
-
-    .cont-contact {
-        a{
-            font-size: 12px;
-        }
-    }
-
 }
-}
-
 @media (max-width: 768px) {
+    .main-cont {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
 
-.main-cont{
-    display: flex;
-    flex-direction:column;
-    justify-content:flex-start;
-
-
-
-         .cont-left {
+        .cont-left {
             width: 100%;
             background: url("../images/homeCover.jpg") no-repeat center;
-            background-size:100% 100%;
-    }
-    .cont-right {
-        display: none;
-    }
-
-    .img-middle{
-        position: relative;
-        min-height: 320px;
-        min-width: 50%;
-    }
-    .info-middle {
-        left: 0;
-        top: 62.2%;
-        width: 50%;
-        height: 320px;
-
-         h2{
-            font-size: 10pt;
+            background-size: 100% 100%;
         }
-        .cont-contact {
-            font-size: 10px;
-            padding-top: 10px;
-        }
-    }
-    .video-middle{
-        left: 0%;
-        height: 300px;
-        width: 100%;
-        position: relative;
 
-        .iframe-home{
+        .cont-right {
+            display: none;
+        }
+
+        .img-middle {
+            position: relative;
+            min-height: 320px;
+            min-width: 50%;
+        }
+
+        .info-middle {
+            left: 0;
+            top: 62.2%;
+            width: 50%;
+            height: 320px;
+
+            h2 {
+                font-size: 10pt;
+            }
+
+            .cont-contact {
+                font-size: 10px;
+                padding-top: 10px;
+            }
+        }
+
+        .video-middle {
+            left: 0;
             height: 300px;
-        width: 100%;
+            width: 100%;
+            position: relative;
 
+            .iframe-home {
+                height: 300px;
+                width: 100%;
+            }
         }
     }
 }
-
-}
-
 @media (max-width: 720px) {
+    .main-cont {
+        .img-middle {
+            display: none;
+        }
 
-.main-cont{
-    .img-middle{
-        display: none;
+        .info-middle {
+            position: relative;
+            width: 100%;
+        }
     }
-    .info-middle {
-        position: relative;
-        width: 100%;
-    }
-}
-
 }
