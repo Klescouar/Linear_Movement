@@ -94,23 +94,27 @@
 
     .info-middle {
         position: absolute;
-        height: 700px;
-        width: 450px;
-        background: url("../images/stickies.png") no-repeat center;
+        min-height: 90%;
+        width: 30%;
+        // height: 688px;
+        // width: 430px;
+        background: url("../images/stickies2.png") no-repeat center;
         background-size: cover;
+        background-color: #C4C4C4;
         left: 60%;
         top: 5%;
         z-index: 3;
         cursor: move;
         display: flex;
         flex-direction: column;
+        box-shadow: 0px 8px 19px -4px rgba(0,0,0,0.6);
 
         h2 {
             font-family: "DejaVuSansBold";
-            padding-top: 20px;
+            padding-top: 15px;
             padding-right: 20px;
             padding-left: 20px;
-            font-size: 21pt;
+            font-size: 16pt;
         }
     }
 
@@ -125,6 +129,7 @@
 }
 
 .cont-contact {
+
     display: flex;
     flex-direction: column;
     padding-top: 20px;
@@ -133,12 +138,14 @@
     font-size: 20px;
 
     a {
-        font-size: 16px;
+       font-size: 14px !important;
+       line-height: 20px !important;
         font-family: "DejaVuSansMonoBold";
         width: 100%;
         text-decoration: none;
         color: black;
         cursor: pointer;
+        line-height:120%;
     }
 
     a:hover {
@@ -178,8 +185,8 @@
         }
 
         .info-middle {
-            height: 450px;
-            width: 300px;
+            height: 500px;
+            width: 320px;
 
             h2 {
                 font-size: 12pt;
