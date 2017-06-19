@@ -1,0 +1,107 @@
+.boContainer{
+  height: 100vh;
+}
+
+.boChoice{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(43, 42, 42);
+    width: 100%;
+    height: 15vh;
+    a {
+        height: 50px;
+        width: 30%;
+        background-color: rgb(207, 207, 207);
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+        text-decoration: none;
+        transition: 0.2s all;
+        cursor: pointer;
+    }
+    a:hover {
+        background-color: grey;
+        color: rgb(222, 219, 219);
+        transition: 0.2s all;
+    }
+}
+
+.showChoice{
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(222, 222, 222);
+  h1{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.71);
+  }
+}
+
+.inputTitle{
+  width: 300px;
+  height: 30px;
+  margin: 10px;
+  padding-left: 10px;
+}
+
+.reseau{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border-top: 1px dashed rgb(98, 98, 98);
+}
+
+.inputCorpus{
+  width: 500px;
+  height: 100px;
+  padding: 15px;
+  margin: 10px;
+}
+
+.textEvent{
+  width: 500px;
+  height: 100px;
+  padding: 15px;
+  margin: 10px;
+}
+
+.confirm-button{
+  margin: 10px;
+  background-color: rgb(106, 106, 106);
+  padding: 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  color: white;
+  border: none;
+}
+
+.confirm-button:hover{
+  background-color: rgb(149, 149, 149);
+}
+
+
+.remove-or-edit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    button{
+      margin: 10px;
+    }
+    p{
+      margin: 20px 60px;
+    }
+}

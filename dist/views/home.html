@@ -1,0 +1,36 @@
+<div class="main-cont" ng-controller="homeCtrl">
+  <div class="cont-left" ng-style="{'background-image':'url('+infoHome[0].background+')'}" ng-click="playVideo()">
+  </div>
+
+  <div class="img-middle draggable" ng-style="{'background-image':'url('+infoHome[0].EP+')'}" ng-mousedown="changeZIndex(1)"></div>
+
+  <div class="video-middle draggable" ng-click="changeZIndex(2)">
+    <iframe class="iframe-home" ng-class="{'iframe-home2': !changeEvent}" ng-src="{{trustSrc(infoHome[0].video)}}" width="640" height="352" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+
+    </iframe>
+    <div class="invisible-cont"></div>
+  </div>
+  <div class="info-middle draggable" id="resize" ng-mousedown="changeZIndex(3)">
+    <div class="top-info"></div>
+    <h2><!-- {{infoHome[0].bioLinear}} -->Linear Movement is a <br> Paris-based techno label founded in 2015 with the meeting of Audub and <br> the graphic collective Miråndå. At the base of the label, the desire to offer an aesthetic  who brings <br> together complementary and convergent views.</h2>
+    <div class="cont-contact">
+    <div class="cont-mail" ng-mouseover="contactMail=true" ng-mouseout="contactMail = false">
+      <a class="title-contact">://  Contact:</a>
+      <a class="contact" ng-init="contactMail=false" ng-show="contactMail" href="contact@linearmovementrecords.com">contact@linearmovementrecords.com</a>
+    </div>
+    <div class="cont-mail" ng-mouseover="contactBooking=true" ng-mouseout="contactBooking = false">
+      <a class="title-contact">://  Booking:</a>
+      <a class="contact" ng-init="contactBooking=false" ng-show="contactBooking" href="booking@linearmovementrecords.com">booking@linearmovementrecords.com</a>
+    </div>
+      <a target="_blank" ng-href="{{infoHome[0].soundcloud}}">://   Soundcloud:</a>
+      <a target="_blank" ng-href="{{infoHome[0].bandcamp}}">://   Bandcamp:</a>
+      <a target="_blank" ng-href="{{infoHome[0].facebook}}">://   Facebook:</a>
+    </div>
+    <div class="cont-contact">
+        <a ng-repeat="band in infoArtiste" ng-href="#/artist/{{band._id}}" >://   {{band.name}}:</a>
+    </div>
+  </div>
+  <div class="cont-right">
+    <div class="logo"></div>
+  </div>
+</div>

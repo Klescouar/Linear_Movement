@@ -1,0 +1,29 @@
+<div class="main-cont-artist" ng-controller="artistPageCtrl">
+	<div class="main-cont-left">
+		<div class="cont-left-artist" ng-repeat="event in events">
+			<div class="cont-event">
+				<p>{{event.dateEvent}}</p>
+				<p>{{event.descriptEvent}}</p>
+				<p>{{event.spotEvent}}</p>
+			</div>
+		</div>
+	</div>
+	<div class="cont-img" ng-style="{'background-image':'url('+band.photo+')'}">
+	</div>
+	
+	<div class="info-artist draggable">
+		<div class="top-info"></div>
+		<h1>{{band.name}}</h1>
+		<p>{{band.bio}}</p>
+		<div class="cont-contact">
+			<a ng-href="{{band.contact}}">://  Contact:</a>
+			<a target="_blank" ng-href="{{band.soundcloud}}">://   Soundcloud:</a>
+			<a target="_blank" ng-href="{{band.bandcamp}}">://   Bandcamp:</a>
+			<a target="_blank" ng-href="{{band.facebook}}">://   Facebook:</a>
+		</div>
+	</div>
+	<div class="cont-right-invisible">
+		<dir class="close" ng-click="backPage()"></dir>
+		<div class="logo"></div>
+	</div>
+</div>
