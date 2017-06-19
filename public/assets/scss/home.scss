@@ -25,7 +25,6 @@
     .cont-left {
         height: 100vh;
         width: 40%;
-        //background: url("../images/homeCover.jpg") no-repeat center;
         background-size: 100% 100%;
     }
 
@@ -127,18 +126,14 @@
 }
 
 .cont-contact {
-
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
     font-size: 20px;
     
     .cont-mail{
         display: flex;
 
-    // .contact-hide{
-    //     display: none;
-    // }
         .contact {
     
     font-size: 10px;
@@ -153,8 +148,6 @@
     
     }
 
-
-
     a {
        font-size: 14px !important;
        line-height: 20px !important;
@@ -163,7 +156,6 @@
         color: black;
         cursor: pointer;
         line-height:120%;
-        margin-right: 10px;
     }
 
     a:hover {
@@ -212,6 +204,7 @@
         }
 
         .cont-contact {
+            margin-top: 20px;
             a {
                 font-size: 12px;
             }

@@ -15,9 +15,11 @@ $('#resize')
     	.resizable();
 
 
+
 });
 
     	$scope.backPage = function(){
     		history.back();
     	}
+
 }]);﻿

@@ -3,6 +3,7 @@ app.controller('homeCtrl', ['$scope', '$http', '$sce', function($scope, $http, $
     $http.get('/Home').success(function(response) {
         console.log("I got the data I requested");
         $scope.infoHome = response;
+
     });
 
     $http.get('/Artiste').success(function(response) {
@@ -21,7 +22,6 @@ app.controller('homeCtrl', ['$scope', '$http', '$sce', function($scope, $http, $
     }
 
     $scope.changeZIndex = function(selector) {
-
         var index_highest = 0;
         // more effective to have a class for the div you want to search
         $(".img-middle,.video-middle,.info-middle").each(function() {
@@ -50,8 +50,6 @@ app.controller('homeCtrl', ['$scope', '$http', '$sce', function($scope, $http, $
         $('#resize')
             .resizable();
     });
-
-
 //     var iframe = $('.iframe-home');
 // var player = new Vimeo.Player(iframe);
 
