@@ -32,6 +32,7 @@
     "jshint-stylish": "^2.2.1",
     "mongodb": "^2.1.4",
     "mongojs": "^2.4.0",
+    "mongoose": "^4.11.0",
     "multer": "^1.2.0",
     "node-basicauth": "0.0.9",
     "path": "^0.12.7",

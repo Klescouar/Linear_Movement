@@ -63,6 +63,12 @@
   align-items: center;
   margin-top: 20px;
   border-top: 1px dashed rgb(98, 98, 98);
+
+  span{
+    color: red;
+    font-size: 13px;
+    margin-top: 10px;
+  }
 }
 
 .inputCorpus{

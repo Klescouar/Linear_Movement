@@ -1,15 +1,12 @@
-app.controller('homeCtrl', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
-    
-    $http.get('/Home').success(function(response) {
-        console.log("I got the data I requested");
-        $scope.infoHome = response;
+app.controller('homeCtrl', ['$scope', '$http', '$sce','dataHome','dataArtist', function($scope, $http, $sce, dataHome, dataArtist) {
 
-    });
-
-    $http.get('/Artiste').success(function(response) {
-        console.log("I got the data I requested");
-        $scope.infoArtiste = response;
-    });
+dataHome.getInfoHome().then((res) => {
+    $scope.infoHome=res.data;
+})
+dataArtist.getInfoAllArtist().then((res) => {
+    $scope.infoArtist=res.data;
+    console.log($scope.infoArtist)
+})
 
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
@@ -18,7 +15,6 @@ app.controller('homeCtrl', ['$scope', '$http', '$sce', function($scope, $http, $
 
     $scope.contactMail = function() {
         $scope.contact = !$scope.contact;
-        console.log($scope.contact)
     }
 
     $scope.changeZIndex = function(selector) {

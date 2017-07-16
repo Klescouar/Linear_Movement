@@ -1,81 +1,69 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <script type="text/javascript" src="../lib/js/angular.min.js"></script>
-        <script type="text/javascript" src="../lib/js/jquery.min.js"></script>
-        <script type="text/javascript" src="../lib/js/lodash.js"></script>
-        <script type="text/javascript" src="../lib/js/angular-route.js"></script>
-        <link rel="stylesheet" href="../assets/css/style.css" media="screen" title="no title">
-    </head>
-    <body>
         <div class="boContainer" ng-app="linear_movement" ng-controller="boCtrl">
             <div class="boChoice">
                 <a ng-click="show = 0">Créer une fiche artiste</a>
                 <a ng-click="show = 2">Modifier/supprimer une fiche artiste</a>
-                <a ng-click="show = 1">Info Home</a>
+                <a ng-click="show = 1">Modifier les infos de la home</a>
             </div>
 
-            <div class="showChoice" ng-if="show === 0">
-                <input id="name" type="text" class="inputTitle" placeholder="Nom du groupe...">
-                <textarea id="biography" name="name" class="inputCorpus" placeholder="Biographie..."></textarea>
-                <input id="facebook" type="text" class="inputTitle" placeholder="facebook...">
-                <input id="discorgs" type="text" class="inputTitle" placeholder="discorgs...">
-                <input id="resident" type="text" class="inputTitle" placeholder="Resident...">
-                <input id="soundcloud" type="text" class="inputTitle" placeholder="soundcloud...">
-                <input id="photo" type="text" class="inputTitle" placeholder="Photo...">
+            <form class="showChoice" ng-show="show === 0" ng-submit="addArtist()">
+                <input ng-model="name" type="text" class="inputTitle" placeholder="Nom du groupe..." required>
+                <textarea ng-model="biography" name="name" class="inputCorpus" placeholder="Biographie..." required></textarea>
+                <input ng-model="facebook" type="text" class="inputTitle" placeholder="facebook..." required>
+                <input ng-model="discorgs" type="text" class="inputTitle" placeholder="discorgs..." required>
+                <input ng-model="resident" type="text" class="inputTitle" placeholder="Resident..." required>
+                <input ng-model="soundcloud" type="text" class="inputTitle" placeholder="soundcloud..." required>
+                <input ng-model="photo" type="text" class="inputTitle" placeholder="Photo..." required>
                 <div class="event">
                   <h1>EVENT N°1</h1>
-                    <input id="dateEvent1" type="text" class="inputTitle" placeholder="dateEvent...">
-                    <textarea id="descriptEvent1" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
-                    <input id="spotEvent1" type="text" class="inputTitle" placeholder="spotEvent...">
+                    <input ng-model="dateEvent1" type="text" class="inputTitle" placeholder="dateEvent...">
+                    <textarea ng-model="descriptEvent1" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                    <input ng-model="spotEvent1" type="text" class="inputTitle" placeholder="spotEvent...">
                 </div>
                 <div class="event">
                   <h1>EVENT N°2</h1>
-                    <input id="dateEvent2" type="text" class="inputTitle" placeholder="dateEvent...">
-                    <textarea id="descriptEvent2" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
-                    <input id="spotEvent2" type="text" class="inputTitle" placeholder="spotEvent...">
+                    <input ng-model="dateEvent2" type="text" class="inputTitle" placeholder="dateEvent...">
+                    <textarea ng-model="descriptEvent2" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                    <input ng-model="spotEvent2" type="text" class="inputTitle" placeholder="spotEvent...">
                 </div>
                 <div class="event">
                   <h1>EVENT N°3</h1>
-                    <input id="dateEvent3" type="text" class="inputTitle" placeholder="dateEvent...">
-                    <textarea id="descriptEvent3" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
-                    <input id="spotEvent3" type="text" class="inputTitle" placeholder="spotEvent...">
+                    <input ng-model="dateEvent3" type="text" class="inputTitle" placeholder="dateEvent...">
+                    <textarea ng-model="descriptEvent3" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                    <input ng-model="spotEvent3" type="text" class="inputTitle" placeholder="spotEvent...">
                 </div>
                 <div class="event">
                   <h1>EVENT N°4</h1>
-                    <input id="dateEvent4" type="text" class="inputTitle" placeholder="dateEvent...">
-                    <textarea id="descriptEvent4" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
-                    <input id="spotEvent4" type="text" class="inputTitle" placeholder="spotEvent...">
+                    <input ng-model="dateEvent4" type="text" class="inputTitle" placeholder="dateEvent...">
+                    <textarea ng-model="descriptEvent4" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                    <input ng-model="spotEvent4" type="text" class="inputTitle" placeholder="spotEvent...">
                 </div>
                 <div class="event">
                   <h1>EVENT N°5</h1>
-                    <input id="dateEvent5" type="text" class="inputTitle" placeholder="dateEvent...">
-                    <textarea id="descriptEvent5" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
-                    <input id="spotEvent5" type="text" class="inputTitle" placeholder="spotEvent...">
+                    <input ng-model="dateEvent5" type="text" class="inputTitle" placeholder="dateEvent...">
+                    <textarea ng-model="descriptEvent5" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                    <input ng-model="spotEvent5" type="text" class="inputTitle" placeholder="spotEvent...">
                 </div>
                 <div class="event">
                   <h1>EVENT N°6</h1>
-                    <input id="dateEvent6" type="text" class="inputTitle" placeholder="dateEvent...">
-                    <textarea id="descriptEvent6" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
-                    <input id="spotEvent6" type="text" class="inputTitle" placeholder="spotEvent...">
-                    <button class="confirm-button" ng-click="addArtist()">Ajouter article</button>
+                    <input ng-model="dateEvent6" type="text" class="inputTitle" placeholder="dateEvent...">
+                    <textarea ng-model="descriptEvent6" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                    <input ng-model="spotEvent6" type="text" class="inputTitle" placeholder="spotEvent...">
+                    <span ng-show="artist===false">Cet artiste existe déjà</span>
+                    <input type="submit" class="button-form" id="inputArtist" value="Ajouter">
                 </div>
-              </div>
-
-
-                <div class="showChoice" ng-if="show === 1">
-                    <textarea id="bioLinear" class="inputCorpus" name="name" placeholder="Description linear_movement...">{{infoHome[0].bioLinear}}</textarea>
-                    <input id="contactLinear" type="text" class="inputTitle" value="{{infoHome[0].contact}}" placeholder="contact...">
-                    <input id="soundcloudLinear" type="text" class="inputTitle" value="{{infoHome[0].soundcloud}}" placeholder="soundcloud...">
-                    <input id="bandcampLinear" type="text" class="inputTitle" value="{{infoHome[0].bandcamp}}" placeholder="bandcamp...">
-                    <input id="facebookLinear" type="text" class="inputTitle" value="{{infoHome[0].facebook}}" placeholder="facebook...">
-                    <input id="videoLinear" type="text" class="inputTitle" value="{{infoHome[0].video}}" placeholder="URL video...">
-                    <input id="backgroundLinear" type="text" class="inputTitle" value="{{infoHome[0].background}}" placeholder="URL background image...">
-                    <input id="imageEpLinear" type="text" class="inputTitle" value="{{infoHome[0].EP}}" placeholder="URL image EP...">
-                    <button class="confirm-button" ng-click="updateHome()">Update Home infos</button>
-                </div>
+              </form>
+                <form class="showChoice" ng-show="show === 1" ng-submit="updateHome()" >
+                    <textarea class="inputCorpus" type="text" ng-model="infoHome[0].bioLinear" name="bioLinear" placeholder="Description linear_movement..."></textarea>
+                    <input ng-model="infoHome[0].contact" type="text" class="inputTitle" placeholder="contact...">
+                    <input ng-model="infoHome[0].booking" type="text" class="inputTitle" placeholder="booking...">
+                    <input ng-model="infoHome[0].soundcloud" type="text" class="inputTitle" placeholder="soundcloud...">
+                    <input ng-model="infoHome[0].bandcamp" type="text" class="inputTitle" placeholder="bandcamp...">
+                    <input ng-model="infoHome[0].facebook" type="text" class="inputTitle" placeholder="facebook...">
+                    <input ng-model="infoHome[0].video" type="text" class="inputTitle" placeholder="URL video...">
+                    <input ng-model="infoHome[0].background" type="text" class="inputTitle" placeholder="URL background image...">
+                    <input ng-model="infoHome[0].EP" type="text" class="inputTitle" placeholder="URL image EP...">
+                    <input class="button-form" type="submit" id="inputHome" value="Update home">
+                </form>
 
                 <div class="showChoice" ng-if="show === 2">
                     <div ng-repeat="artiste in infoArtiste" class="remove-or-edit">
@@ -131,7 +119,3 @@
                   </div>
                     <button class="confirm-button" ng-click="updateArtiste(editArtiste._id)">Update fiche artiste</button>
                 </div>
-                <script type="text/javascript" src="../assets/js/app.js"></script>
-                <script type="text/javascript" src="../assets/js/controllers/backOfficeCtrl.js"></script>
-            </body>
-        </html>

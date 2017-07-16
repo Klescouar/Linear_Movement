@@ -12,22 +12,23 @@
   </div>
   <div class="info-middle draggable" id="resize" ng-mousedown="changeZIndex(3)">
     <div class="top-info"></div>
-    <h2><!-- {{infoHome[0].bioLinear}} -->Linear Movement is a <br> Paris-based techno label founded in 2015 with the meeting of Audub and <br> the graphic collective Miråndå. At the base of the label, the desire to offer an aesthetic  who brings <br> together complementary and convergent views.</h2>
+    <h2>{{infoHome[0].bioLinear}}</h2>
     <div class="cont-contact">
     <div class="cont-mail" ng-mouseover="contactMail=true" ng-mouseout="contactMail = false">
       <a class="title-contact">://  Contact:</a>
-      <a class="contact" ng-init="contactMail=false" ng-show="contactMail" href="contact@linearmovementrecords.com">contact@linearmovementrecords.com</a>
+      <a class="contact" ng-init="contactMail=false" ng-show="contactMail" href="contact@linearmovementrecords.com">{{infoHome[0].contact}}</a>
     </div>
     <div class="cont-mail" ng-mouseover="contactBooking=true" ng-mouseout="contactBooking = false">
       <a class="title-contact">://  Booking:</a>
-      <a class="contact" ng-init="contactBooking=false" ng-show="contactBooking" href="booking@linearmovementrecords.com">booking@linearmovementrecords.com</a>
+      <a class="contact" ng-init="contactBooking=false" ng-show="contactBooking" href="booking@linearmovementrecords.com">{{infoHome[0].booking}}</a>
     </div>
       <a target="_blank" ng-href="{{infoHome[0].soundcloud}}">://   Soundcloud:</a>
       <a target="_blank" ng-href="{{infoHome[0].bandcamp}}">://   Bandcamp:</a>
       <a target="_blank" ng-href="{{infoHome[0].facebook}}">://   Facebook:</a>
     </div>
     <div class="cont-contact">
-        <a ng-repeat="band in infoArtiste" ng-href="#/artist/{{band._id}}" >://   {{band.name}}:</a>
+        <a ng-repeat="band in infoArtist" ng-href="#/artist/{{band._id}}" >://   {{band.name}}:</a>
+  <!--       <a ng-href="#/artist/{{band._id}}" >://   {{infoArtist[0].name}}:</a> -->
     </div>
   </div>
   <div class="cont-right">

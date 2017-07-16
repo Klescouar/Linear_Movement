@@ -1,76 +1,97 @@
-app.controller('boCtrl', ['$scope', '$http', function($scope, $http) {
-
+app.controller('boCtrl', ['$scope', '$http','dataBackOffice','inputAnim','dataHome', function($scope, $http,dataBackOffice,inputAnim,dataHome) {
+    $scope.artist=true;
     $scope.show = 0;
+    
+/////////////////GET INFOS HOME//////////////////
+dataHome.getInfoHome().then((res) => {
+   $scope.infoHome=res.data;
 
-    const refresh = () => {
-        $http.get('/Artiste').success(function(response) {
-            console.log("I got the data I requested");
-            $scope.infoArtiste = response;
-        });
-        $http.get('/Home').success(function(response) {
-            console.log("I got the data I requested");
-            $scope.infoHome = response;
-        });
-    };
+})
+    // const refresh = () => {
+    //     $http.get('/Artiste').success(function(response) {
+    //         console.log("I got the data I requested");
+    //         $scope.infoArtiste = response;
+    //     });
+    //     $http.get('/Home').success(function(response) {
+    //         console.log("I got the data I requested");
+    //         $scope.infoHome = response;
+    //     });
+    // };
 
-    refresh();
+    // refresh();
 
+///////////////////CREATE NEW ARTIST//////////////////
     $scope.addArtist = function() {
+        $scope.artist=true;
         let dataArtist = {
-            name: document.getElementById("name").value,
-            bio: document.getElementById("biography").value,
-            facebook: document.getElementById("facebook").value,
-            discorgs: document.getElementById("discorgs").value,
-            resident: document.getElementById("resident").value,
-            soundcloud: document.getElementById("soundcloud").value,
-            photo: document.getElementById("photo").value,
+            name: $scope.name,
+            bio: $scope.biography,
+            facebook: $scope.facebook,
+            discorgs: $scope.discorgs,
+            resident: $scope.resident,
+            soundcloud: $scope.soundcloud,
+            photo: $scope.photo,
             events: [{
-                dateEvent: document.getElementById("dateEvent1").value,
-                descriptEvent: document.getElementById("descriptEvent1").value,
-                spotEvent: document.getElementById("spotEvent1").value,
+                dateEvent: $scope.dateEvent1,
+                descriptEvent: $scope.descriptEvent1,
+                spotEvent: $scope.spotEvent1,
             }, {
-                dateEvent: document.getElementById("dateEvent2").value,
-                descriptEvent: document.getElementById("descriptEvent2").value,
-                spotEvent: document.getElementById("spotEvent2").value,
+                dateEvent: $scope.dateEvent2,
+                descriptEvent: $scope.descriptEvent2,
+                spotEvent: $scope.spotEvent2,
             }, {
-                dateEvent: document.getElementById("dateEvent3").value,
-                descriptEvent: document.getElementById("descriptEvent3").value,
-                spotEvent: document.getElementById("spotEvent3").value,
+                dateEvent: $scope.dateEvent3,
+                descriptEvent: $scope.descriptEvent3,
+                spotEvent: $scope.spotEvent3,
             }, {
-                dateEvent: document.getElementById("dateEvent4").value,
-                descriptEvent: document.getElementById("descriptEvent4").value,
-                spotEvent: document.getElementById("spotEvent4").value,
+                dateEvent: $scope.dateEvent4,
+                descriptEvent: $scope.descriptEvent4,
+                spotEvent: $scope.spotEvent4,
             }, {
-                dateEvent: document.getElementById("dateEvent5").value,
-                descriptEvent: document.getElementById("descriptEvent5").value,
-                spotEvent: document.getElementById("spotEvent5").value,
+                dateEvent: $scope.dateEvent5,
+                descriptEvent: $scope.descriptEvent5,
+                spotEvent: $scope.spotEvent5,
             }, {
-                dateEvent: document.getElementById("dateEvent6").value,
-                descriptEvent: document.getElementById("descriptEvent6").value,
-                spotEvent: document.getElementById("spotEvent6").value,
+                dateEvent: $scope.dateEvent6,
+                descriptEvent: $scope.descriptEvent6,
+                spotEvent: $scope.spotEvent6,
             }]
         };
-        $http.post('/linear_movement/addArtist', dataArtist).success(function(response) {
-            console.log(response);
-            refresh();
-        });
+        dataBackOffice.createArtist(dataArtist).then((res) => {
+            console.log(dataArtist)
+            console.log(res)
+            if (res.data.errmsg === undefined) {
+                inputAnim.lunchAnim();
+            }else{
+                $scope.artist= false;
+                console.log($scope.artist)
+            }
+            // refresh();
+        })
     };
 
 
-    $scope.updateHome = function() {
-        let dataHome = {
-            bioLinear: document.getElementById("bioLinear").value,
-            contact: document.getElementById("contactLinear").value,
-            soundcloud: document.getElementById("soundcloudLinear").value,
-            bandcamp: document.getElementById("bandcampLinear").value,
-            facebook: document.getElementById("facebookLinear").value,
-            video: document.getElementById("videoLinear").value,
-            background: document.getElementById("backgroundLinear").value,
-            EP: document.getElementById("imageEpLinear").value,
+///////////////////UPDATE INFOS HOME//////////////////
+    $scope.updateHome = () => {
+        $scope.artist=true;
+        const infoHome = {
+            bioLinear: $scope.infoHome[0].bioLinear,
+            contact: $scope.infoHome[0].contact,
+            booking: $scope.infoHome[0].booking,
+            video: $scope.infoHome[0].video,
+            soundcloud: $scope.infoHome[0].soundcloud,
+            facebook: $scope.infoHome[0].facebook,
+            background: $scope.infoHome[0].background,
+            bandcamp: $scope.infoHome[0].bandcamp,
+            EP: $scope.infoHome[0].EP
         };
-        $http.put('/linear_movement/updateHome', dataHome).success(function(response) {
-            refresh();
+        if (confirm("Êtes vous sur de vouloir modifier ?")) {
+        dataBackOffice.updateHome(infoHome).then((res) => {
+            if (res) {
+                inputAnim.lunchAnim();
+            }
         })
+    }
     };
 
     $scope.removeArtiste = function(id) {
@@ -78,7 +99,7 @@ app.controller('boCtrl', ['$scope', '$http', function($scope, $http) {
         if (response === true) {
             console.log(id);
             $http.delete('/linear_movement/remove/artiste/' + id).success(function(response) {
-                refresh();
+                // refresh();
             });
             alert("Artiste supprimé!");
         }
@@ -89,7 +110,6 @@ app.controller('boCtrl', ['$scope', '$http', function($scope, $http) {
         console.log(id);
         $http.get('/linear_movement/artiste/' + id).success(function(response) {
             $scope.editArtiste = response;
-            console.log($scope.editArtiste);
         });
     };
 
@@ -132,7 +152,7 @@ app.controller('boCtrl', ['$scope', '$http', function($scope, $http) {
             };
             console.log(updateArtist);
             $http.put('/linear_movement/update/artiste/' + id, updateArtist).success(function(response) {
-                refresh();
+                // refresh();
             })
             alert("Artiste modifié!")
         };
