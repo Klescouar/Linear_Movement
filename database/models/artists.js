@@ -33,24 +33,29 @@ const ArtistSchema = new Schema({
     lowercase: true,
     required:true
   },
-    photo:{
+  photo:{
     type: String,
     lowercase: true,
     required:true
   },
-  events: [
-    {
-      dateEvent:{
-        type: String
-      },
-      descriptionEvent:{
-        type:String
-      },
-      placeEvent:{
-        type:String
-      }
-    }
-  ]
+  events : [{
+    dateEvent : String,
+    descriptionEvent : String,
+    placeEvent : String
+  }]
+  // events: [
+  //   {
+  //     dateEvent:{
+  //       type: String
+  //     },
+  //     descriptionEvent:{
+  //       type:String
+  //     },
+  //     placeEvent:{
+  //       type:String
+  //     }
+  //   }
+  // ]
 });
 
 module.exports =  ArtistSchema;

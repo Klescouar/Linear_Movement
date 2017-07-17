@@ -16,11 +16,11 @@
     <div class="cont-contact">
     <div class="cont-mail" ng-mouseover="contactMail=true" ng-mouseout="contactMail = false">
       <a class="title-contact">://  Contact:</a>
-      <a class="contact" ng-init="contactMail=false" ng-show="contactMail" href="contact@linearmovementrecords.com">{{infoHome[0].contact}}</a>
+      <a class="contact" ng-init="contactMail=false" ng-show="contactMail" href="infoHome[0].contact">{{infoHome[0].contact}}</a>
     </div>
     <div class="cont-mail" ng-mouseover="contactBooking=true" ng-mouseout="contactBooking = false">
       <a class="title-contact">://  Booking:</a>
-      <a class="contact" ng-init="contactBooking=false" ng-show="contactBooking" href="booking@linearmovementrecords.com">{{infoHome[0].booking}}</a>
+      <a class="contact" ng-init="contactBooking=false" ng-show="contactBooking" href="infoHome[0].booking">{{infoHome[0].booking}}</a>
     </div>
       <a target="_blank" ng-href="{{infoHome[0].soundcloud}}">://   Soundcloud:</a>
       <a target="_blank" ng-href="{{infoHome[0].bandcamp}}">://   Bandcamp:</a>
@@ -28,7 +28,6 @@
     </div>
     <div class="cont-contact">
         <a ng-repeat="band in infoArtist" ng-href="#/artist/{{band._id}}" >://   {{band.name}}:</a>
-  <!--       <a ng-href="#/artist/{{band._id}}" >://   {{infoArtist[0].name}}:</a> -->
     </div>
   </div>
   <div class="cont-right">
