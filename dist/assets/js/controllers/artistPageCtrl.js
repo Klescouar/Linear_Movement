@@ -4,7 +4,7 @@ dataArtist.getInfoArtist(id).then((res) => {
     console.log(id)
     $scope.band=res.data;
     console.log($scope.band)
-    //$scope.events = $scope.band.events;  
+    $scope.events = $scope.band.events;  
 });
 $(document).ready(function() {
 $( '.draggable' )

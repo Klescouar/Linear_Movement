@@ -18,22 +18,6 @@ const refresh = () =>{
 ///////////////////CREATE NEW ARTIST//////////////////
     $scope.addArtist = () => {
     $scope.artist=true;
-    // const pushEvents = () =>{
-    //     console.log("coucou")
-    //     let event1 = {
-    //         dateEvent : $scope.dateEvent1,
-    //         descriptionEvent : $scope.descriptionEvent1,
-    //         placeEvent : $scope.placeEvent1
-    //     }
-    //     console.log(event1.dateEvent)
-    //     let event2 = {
-    //         dateEvent : $scope.dateEvent2,
-    //         descriptionEvent : $scope.descriptionEvent2,
-    //         placeEvent : $scope.placeEvent2
-    //     }
-    //     return datasArtist.events.push(event1,event2)
-    // }
-    //pushEvents()
         let datasArtist = {
             name: $scope.name,
             bio: $scope.biography,
@@ -51,10 +35,21 @@ const refresh = () =>{
                 dateEvent : $scope.dateEvent2,
                 descriptionEvent : $scope.descriptionEvent2,
                 placeEvent : $scope.placeEvent2
+            },{
+                dateEvent : $scope.dateEvent3,
+                descriptionEvent : $scope.descriptionEvent3,
+                placeEvent : $scope.placeEvent3
+            },{
+                dateEvent : $scope.dateEvent4,
+                descriptionEvent : $scope.descriptionEvent4,
+                placeEvent : $scope.placeEvent4
+            },{
+                dateEvent : $scope.dateEvent5,
+                descriptionEvent : $scope.descriptionEvent5,
+                placeEvent : $scope.placeEvent5
             }
             ]
         };
-        console.log(datasArtist.events)
         dataArtist.createArtist(datasArtist).then((res) => {
             if (res.data.errmsg === undefined) {
                 inputAnim.lunchAnim();
@@ -91,51 +86,62 @@ const refresh = () =>{
 $scope.removeArtist = (id) => {
     if (confirm("Êtes vous sur de vouloir supprimer ?")) {
         dataArtist.deleteArtist(id).then((res) => {
-            console.log(res)
+            refresh();
         });
     }
 };
 dataArtist.getInfoAllArtist().then((res) => {
     $scope.infoArtist=res.data;
 });
+let idArtist;
 ///////////////////SHOW ARTIST TO UPDATE//////////////////
 $scope.showInfoArtist = (id) =>{
+    idArtist = id;
+    console.log(idArtist)
     $scope.show = 3;
     dataArtist.getInfoArtist(id).then((res) => {
-        console.log(id)
     $scope.infoOneArtist=res.data;
-    console.log($scope.infoOneArtist)
+    //console.log($scope.infoOneArtist.events[0])
     });
 }
-
-    $scope.updateArtiste = function(id) {
+///////////////////UPDATE ARTISTS//////////////////
+    $scope.updateArtist = () => {
+        let id = idArtist;
         let datasArtist = {
-            name: $scope.name,
-            bio: $scope.biography,
-            facebook: $scope.facebook,
-            discorgs: $scope.discorgs,
-            resident: $scope.resident,
-            soundcloud: $scope.soundcloud,
-            photo: $scope.photo,
-            // dateEvent1: $scope.dateEvent1,
-            // descriptionEvent1: $scope.descriptEvent1,
-            // placeEvent1: $scope.spotEvent1,
-            // dateEvent2: $scope.dateEvent2,
-            // descriptionEvent2: $scope.descriptEvent2,
-            // placeEvent2: $scope.spotEvent2,
-            // dateEvent3: $scope.dateEvent3,
-            // descriptionEvent3: $scope.descriptEvent3,
-            // placeEvent3: $scope.spotEvent3,
-            // dateEvent4: $scope.dateEvent4,
-            // descriptionEvent4: $scope.descriptEvent4,
-            // placeEvent4: $scope.spotEvent4,
-            // dateEvent5: $scope.dateEvent5,
-            // descriptionEvent5: $scope.descriptEvent5,
-            // placeEvent5: $scope.spotEvent5
+            name: $scope.infoOneArtist.name,
+            bio: $scope.infoOneArtist.bio,
+            facebook: $scope.infoOneArtist.facebook,
+            discorgs: $scope.infoOneArtist.discorgs,
+            resident: $scope.infoOneArtist.resident,
+            soundcloud: $scope.infoOneArtist.soundcloud,
+            photo: $scope.infoOneArtist.photo,
+            events : [
+            {
+                dateEvent : $scope.infoOneArtist.events[0].dateEvent,
+                descriptionEvent : $scope.infoOneArtist.events[0].descriptionEvent,
+                placeEvent : $scope.infoOneArtist.events[0].placeEvent
+            },{
+                dateEvent : $scope.infoOneArtist.events[1].dateEvent,
+                descriptionEvent : $scope.infoOneArtist.events[1].descriptionEvent,
+                placeEvent : $scope.infoOneArtist.events[1].placeEvent
+            },{
+                dateEvent : $scope.infoOneArtist.events[2].dateEvent,
+                descriptionEvent : $scope.infoOneArtist.events[2].descriptionEvent,
+                placeEvent : $scope.infoOneArtist.events[2].placeEvent
+            },{
+                dateEvent : $scope.infoOneArtist.events[3].dateEvent,
+                descriptionEvent : $scope.infoOneArtist.events[3].descriptionEvent,
+                placeEvent : $scope.infoOneArtist.events[3].placeEvent
+            },{
+                dateEvent : $scope.infoOneArtist.events[4].dateEvent,
+                descriptionEvent : $scope.infoOneArtist.events[4].descriptionEvent,
+                placeEvent : $scope.infoOneArtist.events[4].placeEvent
+            }
+            ]
         };
-            // $http.put('/linear_movement/update/artiste/' + id, updateArtist).success(function(response) {
-            // refresh();
-            // })
-            // alert("Artiste modifié!")
+        dataArtist.updateArtist(id,datasArtist).then((res) => {
+            inputAnim.lunchAnim();
+            refresh();
+        })
     }
 }]);﻿

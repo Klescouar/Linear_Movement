@@ -6,6 +6,7 @@
             </div>
 
             <form class="showChoice" ng-show="show === 0" ng-submit="addArtist()">
+                <h2>Créer un Artiste</h2>
                 <input ng-model="name" type="text" class="inputTitle" placeholder="Nom du groupe..." required>
                 <textarea ng-model="biography" name="name" class="inputCorpus" placeholder="Biographie..." required></textarea>
                 <input ng-model="facebook" type="text" class="inputTitle" placeholder="facebook..." required>
@@ -25,27 +26,29 @@
                     <textarea ng-model="descriptionEvent2" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
                     <input ng-model="placeEvent2" type="text" class="inputTitle" placeholder="spotEvent...">
                 </div>
-                <!-- <div class="event">
+                <div class="event">
                   <h1>EVENT N°3</h1>
                     <input ng-model="dateEvent3" type="text" class="inputTitle" placeholder="dateEvent...">
-                    <textarea ng-model="descriptEvent3" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
-                    <input ng-model="spotEvent3" type="text" class="inputTitle" placeholder="spotEvent...">
+                    <textarea ng-model="descriptionEvent3" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                    <input ng-model="placeEvent3" type="text" class="inputTitle" placeholder="spotEvent...">
                 </div>
                 <div class="event">
                   <h1>EVENT N°4</h1>
                     <input ng-model="dateEvent4" type="text" class="inputTitle" placeholder="dateEvent...">
-                    <textarea ng-model="descriptEvent4" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
-                    <input ng-model="spotEvent4" type="text" class="inputTitle" placeholder="spotEvent...">
+                    <textarea ng-model="descriptionEvent4" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                    <input ng-model="placeEvent4" type="text" class="inputTitle" placeholder="spotEvent...">
                 </div>
                 <div class="event">
                   <h1>EVENT N°5</h1>
                     <input ng-model="dateEvent5" type="text" class="inputTitle" placeholder="dateEvent...">
-                    <textarea ng-model="descriptEvent5" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
-                    <input ng-model="spotEvent5" type="text" class="inputTitle" placeholder="spotEvent...">
-                </div> -->
+                    <textarea ng-model="descriptionEvent5" name="name" class="inputCorpus" placeholder="Description Event..."></textarea>
+                    <input ng-model="placeEvent5" type="text" class="inputTitle" placeholder="spotEvent...">
+                    <span ng-show="artist === false">Cet artiste existe déjà !</span>
+                </div>
                     <input type="submit" class="button-form" id="inputArtist" value="Ajouter">
               </form>
                 <form class="showChoice" ng-show="show === 1" ng-submit="updateHome()" >
+                    <h2>Modifier la home</h2>
                     <textarea class="inputCorpus" type="text" ng-model="infoHome[0].bioLinear" name="bioLinear" placeholder="Description linear_movement..."></textarea>
                     <input ng-model="infoHome[0].contact" type="text" class="inputTitle" placeholder="contact...">
                     <input ng-model="infoHome[0].booking" type="text" class="inputTitle" placeholder="booking...">
@@ -55,7 +58,7 @@
                     <input ng-model="infoHome[0].video" type="text" class="inputTitle" placeholder="URL video...">
                     <input ng-model="infoHome[0].background" type="text" class="inputTitle" placeholder="URL background image...">
                     <input ng-model="infoHome[0].EP" type="text" class="inputTitle" placeholder="URL image EP...">
-                    <input class="button-form" type="submit" id="inputHome" value="Update home">
+                    <input class="button-form" type="submit" id="inputHome" value="Modifier home">
                 </form>
 
                 <div class="showChoice" ng-show="show === 2">
@@ -65,43 +68,44 @@
                         <button class="confirm-button" ng-click="showInfoArtist(artiste._id)">Edit Artiste</button>
                     </div>
                 </div>
-                <form class="showChoice" ng-show="show === 3" ng-submit="updateArtiste(editArtiste._id)">
-                    <input ng-model="infoOneArtist.name" type="text" class="inputTitle" placeholder="Nom du groupe...">
-                    <textarea ng-model="infoOneArtist[0].biography" name="name" class="textEvent" placeholder="Biographie..."></textarea>
-                    <input ng-model="infoOneArtist[0].facebook" type="text" class="inputTitle" placeholder="facebook...">
-                    <input ng-model="infoOneArtist[0].discorgs" type="text" class="inputTitle" placeholder="discorgs...">
-                    <input ng-model="infoOneArtist[0].resident" type="text" class="inputTitle" placeholder="Resident...">
-                    <input ng-model="infoOneArtist[0].soundcloud" type="text" class="inputTitle" placeholder="Soundcloud...">
-                    <input ng-model="infoOneArtist[0].photo" type="text" class="inputTitle" placeholder="Photo...">
+                <form class="showChoice" ng-show="show === 3" ng-submit="updateArtist(artiste._id)">
+                    <h2>Modifier la fiche Artiste de : {{infoOneArtist.name}}</h2>
+                    <input ng-model="infoOneArtist.name" type="text" class="inputTitle" placeholder="Nom du groupe..." required>
+                    <textarea ng-model="infoOneArtist.bio" name="name" class="textEvent" placeholder="Biographie..." required></textarea>
+                    <input ng-model="infoOneArtist.facebook" type="text" class="inputTitle" placeholder="facebook..." required>
+                    <input ng-model="infoOneArtist.discorgs" type="text" class="inputTitle" placeholder="discorgs..." required>
+                    <input ng-model="infoOneArtist.resident" type="text" class="inputTitle" placeholder="Resident..." required>
+                    <input ng-model="infoOneArtist.soundcloud" type="text" class="inputTitle" placeholder="Soundcloud..." required>
+                    <input ng-model="infoOneArtist.photo" type="text" class="inputTitle" placeholder="Photo..." required>
                     <div class="event">
                       <h1>EVENT N°1</h1>
-                    <input ng-model="infoOneArtist[0].name" type="text" class="inputTitle" placeholder="dateEvent...">
-                    <textarea ng-model="infoOneArtist[0].name" name="name" class="textEvent" placeholder="Description Event..."></textarea>
-                    <input ng-model="infoOneArtist[0].name" type="text" class="inputTitle" placeholder="Salle...">
+                    <input ng-model="infoOneArtist.events[0].dateEvent" type="text" class="inputTitle" placeholder="dateEvent...">
+                    <textarea ng-model="infoOneArtist.events[0].descriptionEvent" name="name" class="textEvent" placeholder="Description Event..."></textarea>
+                    <input ng-model="infoOneArtist.events[0].placeEvent" type="text" class="inputTitle" placeholder="Salle...">
                   </div>
                     <div class="event">
                       <h1>EVENT N°2</h1>
-                    <input ng-model="infoOneArtist[0].name" type="text" class="inputTitle" placeholder="dateEvent...">
-                    <textarea ng-model="infoOneArtist[0].name" name="name" class="textEvent" placeholder="Description Event..."></textarea>
-                    <input ng-model="infoOneArtist[0].name" type="text" class="inputTitle" placeholder="Salle...">
+                    <input ng-model="infoOneArtist.events[1].dateEvent" type="text" class="inputTitle" placeholder="dateEvent...">
+                    <textarea ng-model="infoOneArtist.events[1].descriptionEvent" name="name" class="textEvent" placeholder="Description Event..."></textarea>
+                    <input ng-model="infoOneArtist.events[1].placeEvent" type="text" class="inputTitle" placeholder="Salle...">
                   </div>
                     <div class="event">
                       <h1>EVENT N°3</h1>
-                    <input ng-model="infoOneArtist[0].name" type="text" class="inputTitle" placeholder="dateEvent...">
-                    <textarea ng-model="infoOneArtist[0].name" name="name" class="textEvent" placeholder="Description Event..."></textarea>
-                    <input ng-model="infoOneArtist[0].name" type="text" class="inputTitle" placeholder="Salle...">
+                    <input ng-model="infoOneArtist.events[2].dateEvent" type="text" class="inputTitle" placeholder="dateEvent...">
+                    <textarea ng-model="infoOneArtist.events[2].descriptionEvent" name="name" class="textEvent" placeholder="Description Event..."></textarea>
+                    <input ng-model="infoOneArtist.events[2].placeEvent" type="text" class="inputTitle" placeholder="Salle...">
                   </div>
                     <div class="event">
                       <h1>EVENT N°4</h1>
-                    <input ng-model="infoOneArtist[0].name" type="text" class="inputTitle" placeholder="dateEvent...">
-                    <textarea ng-model="infoOneArtist[0].name" name="name" class="textEvent" placeholder="Description Event..."></textarea>
-                    <input ng-model="infoOneArtist[0].name" type="text" class="inputTitle" placeholder="Salle...">
+                    <input ng-model="infoOneArtist.events[3].dateEvent" type="text" class="inputTitle" placeholder="dateEvent...">
+                    <textarea ng-model="infoOneArtist.events[3].descriptionEvent" name="name" class="textEvent" placeholder="Description Event..."></textarea>
+                    <input ng-model="infoOneArtist.events[3].placeEvent" type="text" class="inputTitle" placeholder="Salle...">
                   </div>
                     <div class="event">
                       <h1>EVENT N°5</h1>
-                    <input ng-model="infoOneArtist[0].name" type="text" class="inputTitle" placeholder="dateEvent..." >
-                    <textarea ng-model="infoOneArtist[0].name" name="name" class="textEvent" placeholder="Description Event..."></textarea>
-                    <input ng-model="infoOneArtist[0].name" type="text" class="inputTitle" placeholder="Salle...">
+                    <input ng-model="infoOneArtist.events[4].dateEvent" type="text" class="inputTitle" placeholder="dateEvent..." >
+                    <textarea ng-model="infoOneArtist.events[4].descriptionEvent" name="name" class="textEvent" placeholder="Description Event..."></textarea>
+                    <input ng-model="infoOneArtist.events[4].placeEvent" type="text" class="inputTitle" placeholder="Salle...">
                   </div>
-                    <input type="submit" class="confirm-button" value="Update">
+                    <input type="submit" class="button-form" id="inputArtist" value="Modifier artiste">
                 </form>

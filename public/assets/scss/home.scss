@@ -94,7 +94,7 @@
     .info-middle {
         position: absolute;
         //min-height: 90%;
-        width: 30%;
+        width: 25%;
         // height: 688px;
         // width: 430px;
         background: url("../images/stickies2.png") no-repeat;
@@ -129,14 +129,12 @@
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    font-size: 20px;
     
     .cont-mail{
         display: flex;
 
         .contact {
     margin-left: 10px;
-    font-size: 10px;
     color:white;
     font-weight: 100;
         }
@@ -144,8 +142,8 @@
     }
 
     a {
-       font-size: 14px !important;
-       line-height: 20px !important;
+       font-size: 14px;
+       line-height: 20px;
         font-family: "DejaVuSansMonoBold";
         text-decoration: none;
         color: black;

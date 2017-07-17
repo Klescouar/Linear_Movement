@@ -3,8 +3,8 @@
 		<div class="cont-left-artist" ng-repeat="event in events">
 			<div class="cont-event">
 				<p>{{event.dateEvent}}</p>
-				<p>{{event.descriptEvent}}</p>
-				<p>{{event.spotEvent}}</p>
+				<p>{{event.descriptionEvent}}</p>
+				<p>{{event.placeEvent}}</p>
 			</div>
 		</div>
 	</div>
@@ -15,7 +15,7 @@
 		<h1>{{band.name}}</h1>
 		<p>{{band.bio}}</p>
 		<div class="cont-contact">
-			<a ng-href="{{band.contact}}">://  Contact:</a>
+			<!-- <a ng-href="{{band.contact}}">://  Contact:</a> -->
 			<a target="_blank" ng-href="{{band.soundcloud}}">://   Soundcloud:</a>
 			<a target="_blank" ng-href="{{band.bandcamp}}">://   Bandcamp:</a>
 			<a target="_blank" ng-href="{{band.facebook}}">://   Facebook:</a>
@@ -23,6 +23,8 @@
 	</div>
 	<div class="cont-right-invisible">
 		<dir class="close" ng-click="backPage()"></dir>
-		<div class="logo"></div>
+		<a ng-href="#/">
+			<div class="logo"></div>
+		</a>
 	</div>
 </div>

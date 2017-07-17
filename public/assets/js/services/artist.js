@@ -28,4 +28,11 @@ this.deleteArtist = (id) => {
             return err;
   });
 };
+this.updateArtist = (id, datasArtist) => {
+        return $http.put('/api/artist/' + id, datasArtist).then((response) => {
+            return response;
+        }, function(err) {
+            return error;
+        });
+    };
 }]);

@@ -5,7 +5,6 @@ dataHome.getInfoHome().then((res) => {
 })
 dataArtist.getInfoAllArtist().then((res) => {
     $scope.infoArtist=res.data;
-    console.log($scope.infoArtist)
 })
 
     $scope.trustSrc = function(src) {
@@ -46,37 +45,4 @@ dataArtist.getInfoAllArtist().then((res) => {
         $('#resize')
             .resizable();
     });
-//     var iframe = $('.iframe-home');
-// var player = new Vimeo.Player(iframe);
-
-// $scope.playVideo = function() {
-
-// 	$('.player .controls').css('display', 'none!important');
-//       //display: none!important;
-
-
-//     player.on('play', function() {
-//         console.log('played the video!');
-//     });
-
-//     console.log("player.getPaused()", player.getPaused());
-
-// 	player.getPaused()
-// 		.then(function(paused){
-// 			playPause(paused);
-// 		});
-
-// 	function playPause(paused){
-
-// 		if(paused){
-// 			player.play();
-
-// 		} else{
-// 		    	console.log('pause it!');
-// 		    	player.pause();
-// 		 }
-
-// 	}
-
-// }
 }]);﻿

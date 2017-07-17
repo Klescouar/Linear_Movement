@@ -7,7 +7,6 @@ const artistController = {
 		ArtistModel.find()
 		.then(data =>{
 			res.send(data);
-			console.log(data)
 		})
 		.catch(err =>{
 			res.send('Failed :::' + err);
@@ -24,7 +23,7 @@ const artistController = {
 		});
 	},
 	findOne :(req, res) => {
-		const id = req.params.id_artist;
+		const id = req.params.id;
 		ArtistModel.findOne({_id : id}, function (err, doc){
 			if (err) {
 				throw error;
@@ -34,18 +33,27 @@ const artistController = {
 		})
 	},
 	updateArtist :(req,res)=>{
-		const id = req.params.id_artist;
-   		ArtistModel.findById(id, (err,user)=>{
+		const id = req.params.id;
+   		ArtistModel.findById(id,(err,artist)=>{
      			if(err){
        				res.send(err);
+     			}else{
+     			   	artist.name = req.body.name,
+     			    	artist.bio = req.body.bio,
+                      	artist.facebook = req.body.facebook,
+     			    	artist.discorgs = req.body.discorgs,
+     			    	artist.resident = req.body.resident,
+     			    	artist.soundcloud = req.body.soundcloud,
+                      	artist.photo = req.body.photo,
+                      	artist.events = req.body.events
+     				artist.save((err)=>{
+       					if(err){
+         						res.send(err);
+      					}else{
+      						res.send(artist);
+      					}
+     				});
      			}
-     			user.name = req.body.name;
-     			user.save((err)=>{
-       			if(err){
-         				res.send(err);
-      				 res.json({message: 'user Updated!'});
-      			}
-     			});
    		})
    	},
 	deleteArtist :(req,res)=>{

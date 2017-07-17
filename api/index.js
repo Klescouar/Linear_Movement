@@ -16,8 +16,11 @@ apiRoutes.get('/artist', artistController.find);
 apiRoutes.get('/artist/:id', artistController.findOne);
 apiRoutes.post('/artist', artistController.add);
 apiRoutes.delete('/artist/:id', artistController.deleteArtist);
+apiRoutes.put('/artist/:id', artistController.updateArtist);
+
 apiRoutes.get('/home', homeController.find);
 apiRoutes.put('/home', homeController.updateHome);
+
 apiRoutes.use('/api', apiRoutes);
 
 module.exports = apiRoutes;

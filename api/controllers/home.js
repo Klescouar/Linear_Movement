@@ -7,7 +7,6 @@ const homeController = {
 		HomeModel.find()
 		.then(data =>{
 			res.send(data);
-			console.log(data)
 		})
 		.catch(err =>{
 			res.send('Failed :::' + err);
@@ -32,7 +31,7 @@ const homeController = {
        					if(err){
          						res.send(err);
       					}else{
-      						res.json({message: 'user Updated!'});
+      						res.json({message: 'hom Updated!'});
       					}
      				});
      			}
