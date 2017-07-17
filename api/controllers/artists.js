@@ -25,7 +25,7 @@ const artistController = {
 	},
 	findOne :(req, res) => {
 		const id = req.params.id_artist;
-		ArtistModel.findById(id, function (err, doc){
+		ArtistModel.findOne({_id : id}, function (err, doc){
 			if (err) {
 				throw error;
 			}else{

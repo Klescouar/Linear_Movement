@@ -53,21 +53,6 @@ const refresh = () =>{
                 placeEvent : $scope.placeEvent2
             }
             ]
-            // dateEvent1: $scope.dateEvent1,
-            // descriptionEvent1: $scope.descriptEvent1,
-            // placeEvent1: $scope.spotEvent1,
-            // dateEvent2: $scope.dateEvent2,
-            // descriptionEvent2: $scope.descriptEvent2,
-            // placeEvent2: $scope.spotEvent2,
-            // dateEvent3: $scope.dateEvent3,
-            // descriptionEvent3: $scope.descriptEvent3,
-            // placeEvent3: $scope.spotEvent3,
-            // dateEvent4: $scope.dateEvent4,
-            // descriptionEvent4: $scope.descriptEvent4,
-            // placeEvent4: $scope.spotEvent4,
-            // dateEvent5: $scope.dateEvent5,
-            // descriptionEvent5: $scope.descriptEvent5,
-            // placeEvent5: $scope.spotEvent5
         };
         console.log(datasArtist.events)
         dataArtist.createArtist(datasArtist).then((res) => {
