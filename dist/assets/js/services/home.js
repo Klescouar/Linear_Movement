@@ -8,9 +8,4 @@ this.getInfoHome = () => {
   });
 }
 
-    // $http.get('/Artiste').success(function(response) {
-    //     console.log("I got the data I requested");
-    //     $scope.infoArtiste = response;
-    // });
-
 }]);

@@ -40,12 +40,12 @@ const artistController = {
      			}else{
      			   	artist.name = req.body.name,
      			    	artist.bio = req.body.bio,
-                      	artist.facebook = req.body.facebook,
+                      			artist.facebook = req.body.facebook,
      			    	artist.discorgs = req.body.discorgs,
      			    	artist.resident = req.body.resident,
      			    	artist.soundcloud = req.body.soundcloud,
-                      	artist.photo = req.body.photo,
-                      	artist.events = req.body.events
+                      			artist.photo = req.body.photo,
+                      			artist.events = req.body.events
      				artist.save((err)=>{
        					if(err){
          						res.send(err);
@@ -57,13 +57,14 @@ const artistController = {
    		})
    	},
 	deleteArtist :(req,res)=>{
-		const id = req.params.id_artist;
-   		ArtistModel.findOneAndRemove(id, (err)=>{
+		const id = req.params.id;
+   		ArtistModel.remove({_id: id}, (err, artist)=>{
+   			console.log(id)
      			if(err){
        				res.send(err);
      			}
      			else{
-     				res.json({ message: 'Student removed!' });
+     				res.json({ message: 'Artist removed!' });
      			}
    		})
    	}

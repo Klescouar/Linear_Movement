@@ -45,7 +45,7 @@
                     <input ng-model="placeEvent5" type="text" class="inputTitle" placeholder="spotEvent...">
                     <span ng-show="artist === false">Cet artiste existe déjà !</span>
                 </div>
-                    <input type="submit" class="button-form" id="inputArtist" value="Ajouter">
+                    <input type="submit" class="button-form" id="inputCreate" value="Ajouter">
               </form>
                 <form class="showChoice" ng-show="show === 1" ng-submit="updateHome()" >
                     <h2>Modifier la home</h2>
@@ -107,5 +107,5 @@
                     <textarea ng-model="infoOneArtist.events[4].descriptionEvent" name="name" class="textEvent" placeholder="Description Event..."></textarea>
                     <input ng-model="infoOneArtist.events[4].placeEvent" type="text" class="inputTitle" placeholder="Salle...">
                   </div>
-                    <input type="submit" class="button-form" id="inputArtist" value="Modifier artiste">
+                    <input type="submit" class="button-form" id="inputUpdate" value="Modifier artiste">
                 </form>

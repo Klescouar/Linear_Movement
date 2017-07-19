@@ -8,5 +8,6 @@ const HomeSchema = require('./models/home.js');
 const UserSchema = require('./models/user.js');
 module.exports ={
 	home : mongoose.model('Home', HomeSchema),
-	artist : mongoose.model('Artist', ArtistSchema)
+	artist : mongoose.model('Artist', ArtistSchema),
+	user : mongoose.model('User', UserSchema)
 } 

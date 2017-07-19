@@ -84,8 +84,11 @@ const refresh = () =>{
     };
 ///////////////////REMOVE ARTIST//////////////////
 $scope.removeArtist = (id) => {
+    console.log("coucou")
+    console.log(id);
     if (confirm("Êtes vous sur de vouloir supprimer ?")) {
         dataArtist.deleteArtist(id).then((res) => {
+            console.log(id);
             refresh();
         });
     }
@@ -101,7 +104,6 @@ $scope.showInfoArtist = (id) =>{
     $scope.show = 3;
     dataArtist.getInfoArtist(id).then((res) => {
     $scope.infoOneArtist=res.data;
-    //console.log($scope.infoOneArtist.events[0])
     });
 }
 ///////////////////UPDATE ARTISTS//////////////////

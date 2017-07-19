@@ -7,6 +7,8 @@ const mongoose = require('mongoose')
 const request = require('request');
 const fs = require('fs');
 const api = require('./api');
+const passport = require('passport');
+
 
 app.use(routes);
 // const db = mongojs('mongodb://Poncho:database666@ds013569.mlab.com:13569/linear_movement', ['Articles', 'Home']);
